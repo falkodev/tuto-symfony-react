@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tutoriel Symfony / React / Webpack / Babel</title>
+    </head>
+    <body>
+		<div id="en-note" contenteditable="true" data-en-placeholder="Faites glisser des fichiers ici ou commencez simplement à taper..." class="editable">
+		  <div>Dans ce tutoriel, nous allons voir comment mettre en place un éco-système moderne et performant. Nous allons partir du postulat que vous êtes développeur et donc pas complètement débutant sur :</div>
+		  <ul>
+		    <li>Symfony, son intérêt et son fonctionnement, sans forcément être expert, </li>
+		    <li>React (le M de MVC comme clame Facebook, son promoteur) et l'ES6,</li>
+		    <li>la ligne de commande et les paquets NPM. </li>
+		  </ul>
+		  <div><br></div>
+		  <div>Le but de cet article est plus de montrer comment avoir une stack complète et faire travailler ensemble ces outils plutôt que d'enseigner un langage ou un framework.</div>
+		  <div><br></div>
+		  <div>Si vous avez le choix, autant partir sur un environnement full JS avec Node en back et une solution front (React, Angular2, ...), et faites-vous plaisir sur la base de données (MongoDB, Neo4J).</div>
+		  <div><br></div>
+		  <div>Mais si on (votre client, votre entreprise ou votre budget) vous impose un hébergement mutualisé, avec PHP et MySQL comme souvent, le mieux reste de partir avec un bon vieux framework comme Symfony 2 et l'ORM Doctrine. Côté front, on pourrait aussi se contenter de la solution classique de templating Twig. Mais pourquoi se priver de pages encore plus performantes, réactives et éviter des rechargements de page si, en plus, on a un code modulaire comme le permet React ?</div>
+		  <div><br></div>
+		  <div><b>Les outils</b></div>
+		  <div><br></div>
+		  <div>Les frameworks JS modernes poussent à du code modulaire, et Webpack se marie bien à React. C'est un "bundler" ou un empaqueteur en bon français, ce qui va permettre de prendre tous les modules et leurs dépendances et d'en faire un fichier de ressource statique, un gros fichier js en somme.</div>
+		  <div><br></div>
+		  <div>Comme on est parti pour une appli web moderne, autant coder en ES6. Il faut donc utiliser un transpileur tel que Babel.&nbsp;</div>
+		  <div><br></div>
+		  <div>Pour démarrer facilement ce projet, je propose de partir du <a href="https://jolicode.com/blog/yo-cree-tes-projets-symfony2-sur-mesure">générateur conçu par l'équipe de JoliCode</a>&nbsp;: cela va permettre d'installer Symfony2, et tout un tas de paquets NPM bien utiles en quelques lignes de commande. Ainsi, d'autres outils que ceux présentés ci-dessus seront utilisés indirectement (Bower, Brunch, ...).</div>
+		  <div><br></div>
+		  <div><b>Installation</b></div>
+		  <div><br></div>
+		  <div>Bien entendu, Node et NPM doivent être installés sur votre machine de développement. On commence par créer un répertoire accessible à son serveur web. Puis, il suffit de se laisser guider tel qu'expliqué sur le <a href="https://github.com/jolicode/generator-joli-symfony">github du générateur</a> :&nbsp;</div>
+		  <div>
+		    <div style="box-sizing: border-box;">
+		      <ul>
+		        <li><span style="font-size: 16px;"><span style="font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Segoe UI&quot;, Arial, freesans, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;"><span style="color: rgb(51, 51, 51);">Install:&nbsp;<code style="box-sizing: border-box; font-family: Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 13.6px; padding: 0.2em 0px; margin: 0px; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157);">npm install -g yo</code></span></span></span></li>
+		      </ul>
+		    </div>
+		    <div style="box-sizing: border-box;">
+		      <ul>
+		        <li><span style="font-size: 16px;"><span style="font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Segoe UI&quot;, Arial, freesans, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;"><span style="color: rgb(51, 51, 51);">Install:&nbsp;<code style="box-sizing: border-box; font-family: Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 13.6px; padding: 0.2em 0px; margin: 0px; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157);">npm install -g generator-joli-symfony</code></span></span></span></li>
+		      </ul>
+		    </div>
+		    <div style="box-sizing: border-box;">
+		      <ul>
+		        <li><span style="font-size: 16px;"><span style="font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Segoe UI&quot;, Arial, freesans, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;"><span style="color: rgb(51, 51, 51);">Run:&nbsp;<code style="box-sizing: border-box; font-family: Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 13.6px; padding: 0.2em 0px; margin: 0px; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157);">yo joli-symfony --force</code></span></span></span></li>
+		      </ul>
+		    </div>
+		    <div style="box-sizing: border-box;">
+		      <div><br></div>
+		      <div>En gros, vous allez avoir le choix de la version de Symfony que vous utiliserez. J'ai choisi la LTS en cours (2.8) mais dans le futur la version recommandée par Symfony évoluera. L'interêt de ce générateur est qu'il suivra les versions de Symfony avec le temps, rendant (je l'espère) ce tutoriel pérenne un bout de temps.&nbsp;</div>
+		      <div><br></div>
+		      <div>Vous allez aussi pouvoir sélectionner l'outil de build que vous voulez (Grunt, Gulp ou Brunch). J'ai choisi Brunch pour tester et parce que <a href="https://jolicode.com/blog/un-brunch-avec-symfony2">recommandé par JoliCode</a>&nbsp;mais cela n'aura pas grande incidence sur le projet de toute manière.</div>
+		      <div><br></div>
+		      <div style="font-family:&quot;Helvetica Neue&quot;, Arial, sans;font-size:16px;">A partir du moment où il y aura des ressources type css ou images, c'est Brunch qui prend le relais (ou Gulp ou Grunt selon votre choix au départ). Le générateur utilisé étant bien conçu, c'est déjà prévu pour vous. Vous pouvez faire un tour dans le fichier brunch-config.js :&nbsp;</div>
+		      <div>
+		        <div style="font-family:&quot;Helvetica Neue&quot;, Arial, sans;font-size:16px;"><br></div>
+		        <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		          <div>'use strict';</div>
+		          <div><br></div>
+		          <div>exports.config = {</div>
+		          <div>&nbsp; paths: {</div>
+		          <div style="margin-left:40px;">&nbsp;   'public': 'web',</div>
+		          <div style="margin-left:40px;">&nbsp;   'watched': ['app/Resources']</div>
+		          <div>&nbsp; },</div>
+		          <div>&nbsp; files: {</div>
+		          <div style="margin-left:80px;">&nbsp;   javascripts: {</div>
+		          <div style="margin-left:120px;">&nbsp;     joinTo: {</div>
+		          <div style="margin-left:120px;">&nbsp;       'js/app.js': /^app/,</div>
+		          <div style="margin-left:120px;">&nbsp;       'js/vendor.js': /^(?!app)/,</div>
+		          <div style="margin-left:80px;">&nbsp;     }</div>
+		          <div style="margin-left:40px;">&nbsp;   },</div>
+		          <div style="margin-left:40px;">&nbsp;   stylesheets: {</div>
+		          <div style="margin-left:40px;">&nbsp; &nbsp; &nbsp;&nbsp; joinTo: 'css/style.css'</div>
+		          <div style="margin-left:40px;">&nbsp;   }</div>
+		          <div>&nbsp; },</div>
+		          <div>&nbsp; conventions: {</div>
+		          <div style="margin-left:40px;">&nbsp;   ignored: [</div>
+		          <div style="margin-left:40px;">&nbsp;     /\/_/, // File beginning by "_" like _settings.scss</div>
+		          <div style="margin-left:40px;">&nbsp;     // Brunch does include all Bower components by default, we blacklist unneeded ones.</div>
+		          <div style="margin-left:40px;">&nbsp;     //'bower_components/foundation/'</div>
+		          <div style="margin-left:40px;">&nbsp;   ],</div>
+		          <div style="margin-left:40px;">&nbsp;   assets: /^app\/Resources\/assets/</div>
+		          <div>&nbsp; },</div>
+		          <div>&nbsp; plugins: {</div>
+		          <div>&nbsp; &nbsp; &nbsp; &nbsp; babel: {</div>
+		          <div style="margin-left:40px;">&nbsp; &nbsp; &nbsp;&nbsp; pattern: /\.(js|jsx)$/</div>
+		          <div style="margin-left:40px;">&nbsp; },</div>
+		          <div style="margin-left:40px;">&nbsp; sass: {</div>
+		          <div style="margin-left:40px;">&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; allowCache: true</div>
+		          <div style="margin-left:40px;">&nbsp;   },</div>
+		          <div style="margin-left:40px;">&nbsp;   uglify: {</div>
+		          <div style="margin-left:80px;">&nbsp;     mangle: true,</div>
+		          <div style="margin-left:80px;">&nbsp;     compress: {</div>
+		          <div style="margin-left:120px;">&nbsp;       global_defs: {</div>
+		          <div style="margin-left:120px;"> &nbsp; &nbsp; &nbsp;&nbsp; DEBUG: false</div>
+		          <div style="margin-left:80px;">&nbsp; &nbsp; &nbsp; &nbsp; }</div>
+		          <div style="margin-left:80px;">&nbsp;     }</div>
+		          <div style="margin-left:40px;">&nbsp;   },</div>
+		          <div style="margin-left:40px;">&nbsp;   cleancss: {</div>
+		          <div style="margin-left:80px;">&nbsp;     keepSpecialComments: 0,</div>
+		          <div style="margin-left:80px;">&nbsp;     removeEmpty: true</div>
+		          <div style="margin-left:40px;">&nbsp;   }</div>
+		          <div>&nbsp; }</div>
+		          <div>};</div>
+		        </div>
+		      </div>
+		      <div style="font-family:&quot;Helvetica Neue&quot;, Arial, sans;font-size:16px;"><br></div>
+		      <div>On y voit que le dossier app/Resources est surveillé. En cas de changement à l'intérieur de celui-ci, les modifications sont reportées dans le dossier web.</div>
+		      <div style="font-family:&quot;Helvetica Neue&quot;, Arial, sans;font-size:16px;"><br></div>
+		      <div style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">Les fichiers assets - typiquement images ou fonts - sont recopiés tels quels dans le répertoire web de Symfony. Etant donné ce contexte, vous placerez vos images dans le dossier app/Resources/images. En ligne de commande, la tâche "brunch build" compilera js/css et copiera les images. En développement, on peut laisser tourner la commande "brunch watch" dans un terminal pour prendre en compte les changements au fur et à mesure.</div>
+		      <div><br></div>
+		      <div>Une fois ces outils installés, on peut passer à l'étape suivante : l'installation des outils du front. J'ai nommé React, Babel et Webpack.</div>
+		      <div><br></div>
+		      <div>Deux bonnes grosses lignes de commande pour ça :&nbsp;</div>
+		      <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		        <div>
+		          <div>npm i react react-dom --save</div>
+		        </div>
+		      </div>
+		      <div><br></div>
+		      <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		        <div>
+		          <div>npm i webpack webpack-dev-server react-hot-loader babel-loader react --save-dev</div>
+		        </div>
+		      </div>
+		      <div><br></div>
+		      <div><br></div>
+		      <div>Ceci va compléter le fichier package.json déjà créé par le générateur utilisé plus haut. On va d'ailleurs ajouter un élément pour les scripts :&nbsp;</div>
+		      <div><br></div>
+		    </div>
+		  </div>
+		  <div><img class="en-media" src="/shard/s158/res/a16373aa-286c-4665-b965-e5ce222decfa" data-en-resource-reference="resource-4"></div>
+		  <div><br></div>
+		  <div>Normalement, l'élément script est vide, voire absent. Ajoutez ce code tel que sur la capture d'écran ci-dessus :&nbsp;</div>
+		  <div><br></div>
+		  <div style="box-sizing: border-box; padding: 8px; border-radius: 4px; border: 1px solid rgba(0, 0, 0, 0.14902); background-color: rgb(251, 250, 248);">
+		    <div>
+		      <div><span style="font-size: 12px;"><span style="font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;"><span style="color: rgb(51, 51, 51);">"scripts": {</span></span></span></div>
+		      <div><span style="font-size: 12px;"><span style="font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;"><span style="color: rgb(51, 51, 51);">&nbsp; "start": "node webpack.dev-server.js",</span></span></span></div>
+		      <div><span style="font-size: 12px;"><span style="font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;"><span style="color: rgb(51, 51, 51);">&nbsp; "build": "webpack"</span></span></span></div>
+		    </div>
+		    <div><span style="font-size: 12px;"><span style="font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;"><span style="color: rgb(51, 51, 51);">&nbsp; },</span></span></span></div>
+		  </div>
+		  <div><br></div>
+		  <div>Puis, il faut un fichier de configuration webpack.config.js à la racine du projet avec ce contenu :&nbsp;</div>
+		  <div><br></div>
+		  <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		    <div>var path = require('path');<br>var webpack = require('webpack');<br>var node_modules_dir = path.join(__dirname, 'node_modules');<br><br>var config = {<br>&nbsp; &nbsp; entry: [<br>&nbsp; &nbsp; &nbsp; &nbsp; 'webpack-dev-server/client?http://127.0.0.1:3000',<br>&nbsp; &nbsp; &nbsp; &nbsp; 'webpack/hot/only-dev-server',<br>&nbsp; &nbsp; &nbsp; &nbsp; './app/Resources/js/app.js',<br>&nbsp; &nbsp; ],<br>&nbsp; &nbsp; output: {<br>&nbsp; &nbsp; &nbsp; &nbsp; path: path.join(__dirname, 'web/dist'),<br>&nbsp; &nbsp; &nbsp; &nbsp; filename: 'bundle.js',<br>&nbsp; &nbsp; &nbsp; &nbsp; publicPath: 'http://127.0.0.1:3000/static/'<br>&nbsp; &nbsp; },<br>&nbsp; &nbsp; plugins: [<br>&nbsp; &nbsp; &nbsp; &nbsp; new webpack.HotModuleReplacementPlugin(),<br>&nbsp; &nbsp; &nbsp; &nbsp; new webpack.NoErrorsPlugin()<br>&nbsp; &nbsp; ],<br>&nbsp; &nbsp; module: {<br>&nbsp; &nbsp; &nbsp; &nbsp; loaders: [<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; test: /\.jsx?$/,<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; include: path.join(__dirname, 'app/Resources/js'),<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; loader: 'react-hot!babel'<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; ]<br>&nbsp; &nbsp; }<br>};<br><br></div>
+		    <div>module.exports = config;</div>
+		  </div>
+		  <div>&nbsp;</div>
+		  <div>Et enfin, un fichier webpack.dev-server.js :&nbsp;</div>
+		  <div><br></div>
+		  <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		    <div>var webpack = require('webpack');<br>var WebpackDevServer = require('webpack-dev-server');<br>var config = require('./webpack.config');<br><br>new WebpackDevServer(<br>&nbsp; &nbsp; webpack(config),<br>&nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; publicPath: config.output.publicPath,<br>&nbsp; &nbsp; &nbsp; &nbsp; hot: true,<br>&nbsp; &nbsp; &nbsp; &nbsp; quiet: false,<br>&nbsp; &nbsp; &nbsp; &nbsp; noInfo: false,<br>&nbsp; &nbsp; &nbsp; &nbsp; historyApiFallback: true<br>&nbsp; &nbsp; }<br>).listen(<br>&nbsp; &nbsp; 3000,<br>&nbsp; &nbsp; '0.0.0.0',<br>&nbsp; &nbsp; function (err, result) {<br>&nbsp; &nbsp; &nbsp; &nbsp; if (err) {<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; console.log(err);<br>&nbsp; &nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; &nbsp; &nbsp; console.log('Listening at 0.0.0.0:3000');<br>&nbsp; &nbsp; }</div>
+		    <div>);</div>
+		  </div>
+		  <div><br></div>
+		  <div>Tout est prêt pour commencer à coder : un serveur Node webpack.dev-server (basé sur Express en fait) écoute les modifications sur le code, construit et sert le fichier bundle.js selon la configuration définie dans le fichier webpack.config.js.</div>
+		  <div><br></div>
+		  <div>Il reste donc à démarrer la tâche&nbsp;<span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">(dans un deuxième terminal si "brunch watch" est lancé) </span> qui sera utilisée pour le développement <span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">(nous verrons plus tard pour la production) </span>:&nbsp;</div>
+		  <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		    <div>npm run start</div>
+		  </div>
+		  <div><br></div>
+		  <div>Vous devez obtenir le message suivant dans votre terminal :&nbsp;</div>
+		  <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		    <div>webpack: bundle is now VALID.</div>
+		  </div>
+		  <div><br></div>
+		  <div>Si c'est bien le cas, on va créer l'application React. Elle&nbsp;<span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">sera incorporée à l'application Symfony. On va donc commencer par mettre en place les conditions pour que React puisse s'épanouir dans l'environnement qui l'accueillera.</span></div>
+		  <div><b><br></b></div>
+		  <div><b>L'application côté back</b></div>
+		  <div><br></div>
+		  <div>Par défaut, dans le dossier app/Resources/views, nous trouvons le fichier base.html.twig. Etant donné que ce fichier sera celui utilisé par tous les autres templates, nous devons le personnaliser comme ceci :&nbsp;</div>
+		  <div><br></div>
+		  <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		    <div>&lt;!DOCTYPE html&gt;</div>
+		    <div>&lt;html&gt;</div>
+		    <div>&nbsp;   &lt;head&gt;</div>
+		    <div>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;meta charset="UTF-8" /&gt;</div>
+		    <div>&nbsp; &nbsp; &nbsp;&nbsp; &lt;title&gt;{% block title %}Welcome!{% endblock %}&lt;/title&gt;</div>
+		    <div>&nbsp; &nbsp; &nbsp;&nbsp; &lt;link rel="stylesheet" href="{{ asset('css/style.css') }}" /&gt;</div>
+		    <div>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{% block stylesheets %}{% endblock %}</div>
+		    <div>&nbsp; &nbsp; &nbsp;&nbsp; &lt;link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" /&gt;</div>
+		    <div>&nbsp;   &lt;/head&gt;</div>
+		    <div>&nbsp;   &lt;body&gt;</div>
+		    <div>&nbsp; &nbsp; &nbsp;&nbsp; {% block body %}{% endblock %}</div>
+		    <div>&nbsp; &nbsp; &nbsp; &nbsp;&lt;script src="{{ asset('js/vendor.js') }}"&gt;&lt;/script&gt;</div>
+		    <div>&nbsp; &nbsp; &nbsp;&nbsp; {% block javascripts %}</div>
+		    <div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {% if app.environment == 'dev' %}</div>
+		    <div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;script src="http://127.0.0.1:3000/static/bundle.js"&gt;&lt;/script&gt;</div>
+		    <div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {% else %}</div>
+		    <div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &lt;script src="{{ asset('dist/bundle.js') }}"&gt;&lt;/script&gt;</div>
+		    <div>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {% endif %}</div>
+		    <div>&nbsp; &nbsp; &nbsp; &nbsp;{% endblock %}</div>
+		    <div>&nbsp;   &lt;/body&gt;</div>
+		    <div>&lt;/html&gt;</div>
+		  </div>
+		  <div><br></div>
+		  <div>Ce qui est intéressant ici, c'est le block&nbsp;<span style="font-family:Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;font-size:12px;">{% block javascripts %}.&nbsp;</span><span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">Comme nous sommes en environnement de développement, on insert le fichier généré par Webpack (bundle.js). On remarque que le body est vide, ce qui nous fera une belle page blanche.&nbsp;</span>Notez aussi l'appel à un fichier css (style.css) et un fichier js (vendor.js). Ces fichier seront créés plus tard. </div>
+		  <div><br></div>
+		  <div>En ce qui concerne vendor.js, il contient le code <span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">js nécessaire au bon fonctionnement de Bootstrap. Si Bootstrap n'est pas désiré dans votre projet, et que vous abhorrez jquery, vous pouvez supprimer la ligne. Si, en revanche, vous incluez Bootstrap comme nous allons le faire dans ce tutoriel, veillez à ce que la version de jquery définie dans bower.json soit inférieure à 3 (j'ai la 2.2.4) tant que ce n'est pas Bootstrap 4 (3.3.6 à ce jour).</span></div>
+		  <div><br></div>
+		  <div>Le contrôleur par défaut affiche la page index.html.twig (qui elle-même étend base.html.twig, que nous venons de modifier).</div>
+		  <div><br></div>
+		  <div>Personnalisons ce contrôleur dans src/AppBundle/Controller/DefautController.php :</div>
+		  <div><br></div>
+		  <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		    <div>/**</div>
+		    <div>&nbsp;  * @Route("/", name="app")</div>
+		    <div>&nbsp;  */</div>
+		    <div>&nbsp; public function indexAction()</div>
+		    <div>&nbsp; {</div>
+		    <div>&nbsp; &nbsp; &nbsp; return $this-&gt;render('default/index.html.twig');</div>
+		    <div>&nbsp; }</div>
+		  </div>
+		  <div><br></div>
+		  <div>Puis ce fameux fichier index dans&nbsp;<span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">app/Resources/views/default/index.html.twig :</span></div>
+		  <div><br></div>
+		  <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		    <div>{% extends 'base.html.twig' %}</div>
+		    <div><br></div>
+		    <div>{% block body %}</div>
+		    <div>&nbsp;   &lt;div id="app"&gt;&lt;/div&gt;</div>
+		    <div>{% endblock %}</div>
+		  </div>
+		  <div><br></div>
+		  <div>Voilà pour la partie twig. C'est React qui va prendre la suite en gérant le html et l'état des objets de l'application front.</div>
+		  <div><br></div>
+		  <div>En résumé de cette partie, nous avons créé les conditions pour que React s'exécute au sein de notre application Symfony en créant une simple balise div avec un id qui vaut "app".&nbsp;</div>
+		  <div><br></div>
+		  <div>Passons au plus intéressant : l'application React en elle-même.</div>
+		  <div><b><br></b></div>
+		  <div><b>L'application côté front</b></div>
+		  <div><br></div>
+		  <div>React fonctionne par composant. C'est-à-dire que des fichiers js vont inclure d'autres fichiers js et leur passer des objets.&nbsp;</div>
+		  <div><br></div>
+		  <div>Le composant de base s'appellera "app". Et sera rattaché au DOM par la balise "app" définie dans index.html.twig.</div>
+		  <div><br></div>
+		  <div>Créons donc ce premier composant dans app/Resources/js/app/js :&nbsp;</div>
+		  <div><br></div>
+		  <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		    <div>import React from 'react';</div>
+		    <div>import ReactDom from 'react-dom';</div>
+		    <div>import Component from './component.js';</div>
+		    <div><br></div>
+		    <div>ReactDom.render(&lt;Component/&gt;, document.getElementById('app'));</div>
+		  </div>
+		  <div><br></div>
+		  <div>Félicitations, votre application React est créée. Qu'a-t-on fait ? On a dit d'importer react, c'est le minimum. Puis react-dom, qui permettra de manipuler le DOM pour afficher nos composants. Enfin, on importe un composant nommé Component.&nbsp;Ce composant s'affichera dans la balise "app" du fichier HTML grâce à la fonction render de react-dom.</div>
+		  <div><br></div>
+		  <div>Bon si on regarde maintenant dans un navigateur l'adresse http://localhost/nom_du_projet/web/app_dev.php, on ne verra qu'une page blanche.</div>
+		  <div><br></div>
+		  <div>Mais en ouvrant la console du navigateur, vous devriez voir des informations de ce style :</div>
+		  <br>
+		  <div><img class="en-media" src="/shard/s158/res/4e687bc6-4b23-4b90-ab8a-48cc4777b713" data-en-resource-reference="resource-3"></div>
+		  <div><br></div>
+		  <div>Ceci montre que l'application React a démarré, même si elle n'affiche rien pour l'instant. Il y a d'ailleurs aussi une ligne en rouge dans cette console, à propos du composant Component. C'est normal, il n'est pas encore créé.</div>
+		  <div><br></div>
+		  <div>Pour commencer à afficher quelque chose, il faut créer le fichier component.js (toujours dans&nbsp;<span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">app/Resources/js/app/) avec ce contenu par exemple :&nbsp;</span></div>
+		  <div><br></div>
+		  <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		    <div>import React from 'react';</div>
+		    <div><br></div>
+		    <div>const Component = React.createClass({</div>
+		    <div>&nbsp;   render: function () {</div>
+		    <div>&nbsp; &nbsp; &nbsp; return (</div>
+		    <div style="margin-left:40px;">&nbsp;           &lt;h1&gt;Hello world !&lt;/h1&gt;</div>
+		    <div style="margin-left:40px;">&nbsp;);</div>
+		    <div>&nbsp; }</div>
+		    <div>});</div>
+		    <div><br></div>
+		    <div>export default Component;</div>
+		  </div>
+		  <div><br></div>
+		  <div>Ici, on déclare un composant qui s'appelle Component et qui est une classe React. Dans cette classe, la méthode render, lorsqu'elle est appelée, affiche la phrase "Hello World !". Rien de complexe donc.</div>
+		  <div><br></div>
+		  <div>Si on retourne sur notre navigateur, et qu'on rafraîchit, on doit voir apparaître cette phrase. Les prochaines modifications se verront sans avoir besoin de rafraîchir grâce au module Hot Reload de React installé au début. Mais après une erreur console, la page ne se rafraîchit pas.&nbsp;</div>
+		  <div><br></div>
+		  <div><b>Le responsive design</b></div>
+		  <div><b><br></b></div>
+		  <div>Les puristes du CSS clameront que SASS n'a pas d'intérêt et que Twitter Bootstrap, c'est pour les feignants et les peureux face à la puissance de Flexbox. Certes. Mais on y trouve aussi un intérêt bien pratique pour faire du responsive design rapidement. On va aussi personnaliser le rendu pour éviter l'effet "tous les sites Bootstrap se ressemblent".</div>
+		  <div><br></div>
+		  <div>La configuration Bower générée par JoliCode nous a déjà téléchargé le package&nbsp;bootstrap-sass. Nous allons l'inclure dans notre fichier scss principal. Celui-ci sera compilé par Brunch.</div>
+		  <div><br></div>
+		  <div>Si on ouvre le fichier&nbsp;<span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">web/css/style.css maintenant, il ne contient que quelques lignes. Si ce fichier n'existe pas, il faut lancer une compilation brunch </span>dans un terminal :&nbsp;</div>
+		  <div>
+		    <div style="font-family:&quot;Helvetica Neue&quot;, Arial, sans;font-size:16px;"><br></div>
+		    <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		      <div>brunch b</div>
+		    </div>
+		    <div style="font-family:&quot;Helvetica Neue&quot;, Arial, sans;font-size:16px;">&nbsp;</div>
+		    <div style="font-family:&quot;Helvetica Neue&quot;, Arial, sans;font-size:16px;">pour un build. Je préfère un watch en phase de développement :</div>
+		    <div style="font-family:&quot;Helvetica Neue&quot;, Arial, sans;font-size:16px;"><br></div>
+		    <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		      <div>brunch w</div>
+		    </div>
+		  </div>
+		  <div><br></div>
+		  <div>Ajoutons bootstrap en mode SASS. Pour cela, dans le fichier app/Resources/sccs/style.scss, on ajoute cette ligne à la fin du fichier :&nbsp;</div>
+		  <div><br></div>
+		  <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		    <div>@import 'bower_components/bootstrap-sass/assets/stylesheets/bootstrap';</div>
+		  </div>
+		  <div><br></div>
+		  <div>Si on était en mode watch avec brunch,&nbsp;le fichier web/css/style.css est directement mis à jour. Sinon, il faut relancer une compilation à la main. Ouvrons de nouveau le fichier compilé : il contient désormais beaucoup plus de ligne, car Twitter Bootstrap a été ajouté.</div>
+		  <div><br></div>
+		  <div>On va donc pouvoir utiliser ses classes et son système de grille pour rendre notre site responsive.</div>
+		  <div><br></div>
+		  <div>Commençons par ajouter un menu à notre site. On ajoute quelques classes css à la fin du fichier <span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">app/Resources/sccs/</span>style.scss :</div>
+		  <div><br></div>
+		  <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		    <div>/* make sidebar nav vertical */&nbsp;</div>
+		    <div>@media (min-width: 768px) {</div>
+		    <div>&nbsp; .sidebar-nav .navbar .navbar-collapse {</div>
+		    <div>&nbsp;   padding: 0;</div>
+		    <div>&nbsp;   max-height: none;</div>
+		    <div>&nbsp; }</div>
+		    <div>&nbsp; .sidebar-nav .navbar ul {</div>
+		    <div>&nbsp;   float: none;</div>
+		    <div>&nbsp; }</div>
+		    <div>&nbsp; .sidebar-nav .navbar ul:not {</div>
+		    <div>&nbsp;   display: block;</div>
+		    <div>&nbsp; }</div>
+		    <div>&nbsp; .sidebar-nav .navbar li {</div>
+		    <div>&nbsp;   float: none;</div>
+		    <div>&nbsp;   display: block;</div>
+		    <div>&nbsp; }</div>
+		    <div>&nbsp; .sidebar-nav .navbar li a {</div>
+		    <div>&nbsp;   padding-top: 12px;</div>
+		    <div>&nbsp;   padding-bottom: 12px;</div>
+		    <div>&nbsp; }</div>
+		    <div>}</div>
+		  </div>
+		  <div><br></div>
+		  <div>Et on modifie notre fichier component.js de cette manière :</div>
+		  <div><br></div>
+		  <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		    <div>import React from 'react';</div>
+		    <div><br></div>
+		    <div>const Component = React.createClass({</div>
+		    <div>&nbsp;   render: function () {</div>
+		    <div style="margin-left:40px;">&nbsp;       return (</div>
+		    <div style="margin-left:80px;">&nbsp;           &lt;div&gt;</div>
+		    <div style="margin-left:120px;">&nbsp;               &lt;div class="row"&gt;</div>
+		    <div style="margin-left:160px;">&nbsp;                   &lt;div class="col-sm-3"&gt;</div>
+		    <div style="margin-left:200px;">&nbsp;                       &lt;div class="sidebar-nav"&gt;</div>
+		    <div style="margin-left:240px;">&nbsp;                       &lt;div class="navbar navbar-default" role="navigation"&gt;</div>
+		    <div style="margin-left:280px;">&lt;div class="navbar-header"&gt;</div>
+		    <div style="margin-left:280px;">&nbsp;                             &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse"&gt;</div>
+		    <div style="margin-left:320px;">&nbsp;                               &lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;</div>
+		    <div style="margin-left:320px;">&nbsp;                               &lt;span class="icon-bar"&gt;&lt;/span&gt;</div>
+		    <div style="margin-left:320px;">&nbsp;                               &lt;span class="icon-bar"&gt;&lt;/span&gt;</div>
+		    <div style="margin-left:320px;">&nbsp;                               &lt;span class="icon-bar"&gt;&lt;/span&gt;</div>
+		    <div style="margin-left:280px;">&nbsp;                             &lt;/button&gt;</div>
+		    <div style="margin-left:280px;">&nbsp;                             &lt;span class="visible-xs navbar-brand"&gt;Sidebar menu&lt;/span&gt;</div>
+		    <div style="margin-left:280px;">&nbsp;&lt;/div&gt;</div>
+		    <div style="margin-left:280px;">&nbsp;&lt;div class="navbar-collapse collapse sidebar-navbar-collapse"&gt;</div>
+		    <div style="margin-left:320px;">&nbsp;                             &lt;ul class="nav navbar-nav"&gt;</div>
+		    <div style="margin-left:360px;">&nbsp;                               &lt;li class="active"&gt;&lt;a href="#"&gt;Menu Item 1&lt;/a&gt;&lt;/li&gt;</div>
+		    <div style="margin-left:360px;">&nbsp;                               &lt;li&gt;&lt;a href="#"&gt;Menu Item 2&lt;/a&gt;&lt;/li&gt;</div>
+		    <div style="margin-left:360px;">&nbsp;                               &lt;li&gt;&lt;a href="#"&gt;Menu Item 3&lt;/a&gt;&lt;/li&gt;</div>
+		    <div style="margin-left:360px;">&nbsp;                               &lt;li&gt;&lt;a href="#"&gt;Menu Item 4&lt;/a&gt;&lt;/li&gt;</div>
+		    <div style="margin-left:320px;">&nbsp;                             &lt;/ul&gt;</div>
+		    <div style="margin-left:240px;">&nbsp;                           &lt;/div&gt;</div>
+		    <div style="margin-left:200px;">&nbsp;                       &lt;/div&gt;</div>
+		    <div style="margin-left:160px;">&nbsp;                       &lt;/div&gt;</div>
+		    <div style="margin-left:120px;">&nbsp;                   &lt;/div&gt;</div>
+		    <div style="margin-left:120px;">&nbsp;                   &lt;div class="col-sm-9"&gt;</div>
+		    <div style="margin-left:120px;">&nbsp; &nbsp; &nbsp; &nbsp; Main content goes here</div>
+		    <div style="margin-left:120px;">&nbsp;                   &lt;/div&gt;</div>
+		    <div style="margin-left:120px;">&lt;/div&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+		    <div style="margin-left:80px;">&nbsp;           &lt;/div&gt;</div>
+		    <div style="margin-left:40px;">&nbsp;       );</div>
+		    <div>&nbsp;   }</div>
+		    <div>});</div>
+		    <div><br></div>
+		    <div>export default Component;</div>
+		    <div><br></div>
+		  </div>
+		  <div><br></div>
+		  <div>La page rafraichie ne donne pas le résultat escompté, c'est-à-dire un menu stylisé selon la configuration par défaut de Bootstrap :&nbsp;</div>
+		  <div><br></div>
+		  <div><img class="en-media" src="/shard/s158/res/0fa4732a-58db-48d3-84bd-b8f933fb96c3" data-en-resource-reference="resource-2"><br></div>
+		  <div><br></div>
+		  <div>Il faut déjà s'assurer que le style.css est bien pris en compte dans la page html générée (c'était à l'étape "application côté back"). Mais surtout le mot "class" est réservé en syntaxe JSX (si vous voulez savoir pourquoi, <a href="https://www.quora.com/Why-do-I-have-to-use-className-instead-of-class-in-ReactJs-components-done-in-JSX">c'est ici</a>). Il faut donc le remplacer par "className".</div>
+		  <div><br></div>
+		  <div>Voici le code corrigé :&nbsp;</div>
+		  <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
+		    <div>import React from 'react';</div>
+		    <div><br></div>
+		    <div>const Component = React.createClass({</div>
+		    <div>&nbsp;   render: function () {</div>
+		    <div style="margin-left:40px;">&nbsp;       return (</div>
+		    <div style="margin-left:80px;">&nbsp;           &lt;div&gt;</div>
+		    <div style="margin-left:120px;">&nbsp;               &lt;div className="row"&gt;</div>
+		    <div style="margin-left:160px;">&nbsp;                   &lt;div className="col-sm-3"&gt;</div>
+		    <div style="margin-left:200px;">&nbsp;                       &lt;div className="sidebar-nav"&gt;</div>
+		    <div style="margin-left:240px;">&nbsp;                       &lt;div className="navbar navbar-default" role="navigation"&gt;</div>
+		    <div style="margin-left:280px;">&nbsp;                           &lt;div className="navbar-header"&gt;</div>
+		    <div style="margin-left:320px;">&nbsp;                             &lt;button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse"&gt;</div>
+		    <div style="margin-left:360px;">&nbsp;                               &lt;span className="sr-only"&gt;Toggle navigation&lt;/span&gt;</div>
+		    <div style="margin-left:360px;">&nbsp;                               &lt;span className="icon-bar"&gt;&lt;/span&gt;</div>
+		    <div style="margin-left:360px;">&nbsp;                               &lt;span className="icon-bar"&gt;&lt;/span&gt;</div>
+		    <div style="margin-left:360px;">&nbsp;                               &lt;span className="icon-bar"&gt;&lt;/span&gt;</div>
+		    <div style="margin-left:320px;">&nbsp;                             &lt;/button&gt;</div>
+		    <div style="margin-left:320px;">&nbsp;                             &lt;span className="visible-xs navbar-brand"&gt;Sidebar &nbsp; &nbsp;menu&lt;/span&gt;</div>
+		    <div style="margin-left:320px;">&lt;/div&gt;</div>
+		    <div style="margin-left:320px;">&lt;div className="navbar-collapse collapse sidebar-navbar-collapse"&gt;</div>
+		    <div style="margin-left:320px;">&nbsp;                             &lt;ul className="nav navbar-nav"&gt;</div>
+		    <div style="margin-left:320px;">&nbsp;                               &lt;li className="active"&gt;&lt;a href="#"&gt;Menu Item 1&lt;/a&gt;&lt;/li&gt;</div>
+		    <div style="margin-left:320px;">&nbsp;                               &lt;li&gt;&lt;a href="#"&gt;Menu Item 2&lt;/a&gt;&lt;/li&gt;</div>
+		    <div style="margin-left:320px;">&nbsp;                               &lt;li&gt;&lt;a href="#"&gt;Menu Item 3&lt;/a&gt;&lt;/li&gt;</div>
+		    <div style="margin-left:320px;">&nbsp;                               &lt;li&gt;&lt;a href="#"&gt;Menu Item 4&lt;/a&gt;&lt;/li&gt;</div>
+		    <div style="margin-left:320px;">&nbsp;                             &lt;/ul&gt;</div>
+		    <div style="margin-left:280px;">&nbsp; &nbsp; &nbsp; &lt;/div&gt;</div>
+		    <div style="margin-left:240px;">&nbsp;                       &lt;/div&gt;</div>
+		    <div style="margin-left:200px;">&nbsp;                       &lt;/div&gt;</div>
+		    <div style="margin-left:160px;">&nbsp;                   &lt;/div&gt;</div>
+		    <div style="margin-left:160px;">&nbsp;                   &lt;div className="col-sm-9"&gt;</div>
+		    <div style="margin-left:160px;">&nbsp; &nbsp; &nbsp;&nbsp; Main content goes here</div>
+		    <div style="margin-left:160px;">&nbsp;                   &lt;/div&gt;</div>
+		    <div style="margin-left:120px;">&nbsp;               &lt;/div&gt; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</div>
+		    <div style="margin-left:80px;">&nbsp;           &lt;/div&gt;</div>
+		    <div style="margin-left:40px;">&nbsp;       );</div>
+		    <div>&nbsp;   }</div>
+		    <div>});</div>
+		    <div><br></div>
+		    <div>export default Component;</div>
+		  </div>
+		  <div><br></div>
+		  <div>Ce qui donne :&nbsp;</div>
+		  <br><img class="en-media" src="/shard/s158/res/46cb94cf-37d0-46c5-903b-f20885a80968" data-en-resource-reference="resource-1">
+		</div>
+	</body>
+</html>
