@@ -4,8 +4,10 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Tutoriel Symfony / React / Webpack / Babel</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
+    	<div id="title">Tutoriel Symfony / React / Webpack / Babel</div><br>
 		<div id="en-note" contenteditable="true" data-en-placeholder="Faites glisser des fichiers ici ou commencez simplement à taper..." class="editable">
 		  <div>Dans ce tutoriel, nous allons voir comment mettre en place un éco-système moderne et performant. Nous allons partir du postulat que vous êtes développeur et donc pas complètement débutant sur :</div>
 		  <ul>
@@ -109,7 +111,7 @@
 		      <div style="font-family:&quot;Helvetica Neue&quot;, Arial, sans;font-size:16px;"><br></div>
 		      <div>On y voit que le dossier app/Resources est surveillé. En cas de changement à l'intérieur de celui-ci, les modifications sont reportées dans le dossier web.</div>
 		      <div style="font-family:&quot;Helvetica Neue&quot;, Arial, sans;font-size:16px;"><br></div>
-		      <div style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">Les fichiers assets - typiquement images ou fonts - sont recopiés tels quels dans le répertoire web de Symfony. Etant donné ce contexte, vous placerez vos images dans le dossier app/Resources/images. En ligne de commande, la tâche "brunch build" compilera js/css et copiera les images. En développement, on peut laisser tourner la commande "brunch watch" dans un terminal pour prendre en compte les changements au fur et à mesure.</div>
+		      <div>Les fichiers assets - typiquement images ou fonts - sont recopiés tels quels dans le répertoire web de Symfony. Etant donné ce contexte, vous placerez vos images dans le dossier app/Resources/images. En ligne de commande, la tâche "brunch build" compilera js/css et copiera les images. En développement, on peut laisser tourner la commande "brunch watch" dans un terminal pour prendre en compte les changements au fur et à mesure.</div>
 		      <div><br></div>
 		      <div>Une fois ces outils installés, on peut passer à l'étape suivante : l'installation des outils du front. J'ai nommé React, Babel et Webpack.</div>
 		      <div><br></div>
@@ -131,7 +133,7 @@
 		      <div><br></div>
 		    </div>
 		  </div>
-		  <div><img class="en-media" src="/shard/s158/res/a16373aa-286c-4665-b965-e5ce222decfa" data-en-resource-reference="resource-4"></div>
+		  <div><img class="en-media" src="img/package_json.png" data-en-resource-reference="resource-4"></div>
 		  <div><br></div>
 		  <div>Normalement, l'élément script est vide, voire absent. Ajoutez ce code tel que sur la capture d'écran ci-dessus :&nbsp;</div>
 		  <div><br></div>
@@ -160,7 +162,7 @@
 		  <div><br></div>
 		  <div>Tout est prêt pour commencer à coder : un serveur Node webpack.dev-server (basé sur Express en fait) écoute les modifications sur le code, construit et sert le fichier bundle.js selon la configuration définie dans le fichier webpack.config.js.</div>
 		  <div><br></div>
-		  <div>Il reste donc à démarrer la tâche&nbsp;<span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">(dans un deuxième terminal si "brunch watch" est lancé) </span> qui sera utilisée pour le développement <span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">(nous verrons plus tard pour la production) </span>:&nbsp;</div>
+		  <div>Il reste donc à démarrer la tâche&nbsp;(dans un deuxième terminal si "brunch watch" est lancé) qui sera utilisée pour le développement(nous verrons plus tard pour la production):&nbsp;</div>
 		  <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
 		    <div>npm run start</div>
 		  </div>
@@ -170,7 +172,7 @@
 		    <div>webpack: bundle is now VALID.</div>
 		  </div>
 		  <div><br></div>
-		  <div>Si c'est bien le cas, on va créer l'application React. Elle&nbsp;<span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">sera incorporée à l'application Symfony. On va donc commencer par mettre en place les conditions pour que React puisse s'épanouir dans l'environnement qui l'accueillera.</span></div>
+		  <div>Si c'est bien le cas, on va créer l'application React. Elle&nbsp;sera incorporée à l'application Symfony. On va donc commencer par mettre en place les conditions pour que React puisse s'épanouir dans l'environnement qui l'accueillera.</div>
 		  <div><b><br></b></div>
 		  <div><b>L'application côté back</b></div>
 		  <div><br></div>
@@ -200,9 +202,9 @@
 		    <div>&lt;/html&gt;</div>
 		  </div>
 		  <div><br></div>
-		  <div>Ce qui est intéressant ici, c'est le block&nbsp;<span style="font-family:Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;font-size:12px;">{% block javascripts %}.&nbsp;</span><span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">Comme nous sommes en environnement de développement, on insert le fichier généré par Webpack (bundle.js). On remarque que le body est vide, ce qui nous fera une belle page blanche.&nbsp;</span>Notez aussi l'appel à un fichier css (style.css) et un fichier js (vendor.js). Ces fichier seront créés plus tard. </div>
+		  <div>Ce qui est intéressant ici, c'est le block&nbsp;<span style="font-family:Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace;font-size:12px;">{% block javascripts %}.&nbsp;</span>Comme nous sommes en environnement de développement, on insert le fichier généré par Webpack (bundle.js). On remarque que le body est vide, ce qui nous fera une belle page blanche.&nbsp;Notez aussi l'appel à un fichier css (style.css) et un fichier js (vendor.js). Ces fichier seront créés plus tard. </div>
 		  <div><br></div>
-		  <div>En ce qui concerne vendor.js, il contient le code <span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">js nécessaire au bon fonctionnement de Bootstrap. Si Bootstrap n'est pas désiré dans votre projet, et que vous abhorrez jquery, vous pouvez supprimer la ligne. Si, en revanche, vous incluez Bootstrap comme nous allons le faire dans ce tutoriel, veillez à ce que la version de jquery définie dans bower.json soit inférieure à 3 (j'ai la 2.2.4) tant que ce n'est pas Bootstrap 4 (3.3.6 à ce jour).</span></div>
+		  <div>En ce qui concerne vendor.js, il contient le code js nécessaire au bon fonctionnement de Bootstrap. Si Bootstrap n'est pas désiré dans votre projet, et que vous abhorrez jquery, vous pouvez supprimer la ligne. Si, en revanche, vous incluez Bootstrap comme nous allons le faire dans ce tutoriel, veillez à ce que la version de jquery définie dans bower.json soit inférieure à 3 (j'ai la 2.2.4) tant que ce n'est pas Bootstrap 4 (3.3.6 à ce jour).</div>
 		  <div><br></div>
 		  <div>Le contrôleur par défaut affiche la page index.html.twig (qui elle-même étend base.html.twig, que nous venons de modifier).</div>
 		  <div><br></div>
@@ -218,7 +220,7 @@
 		    <div>&nbsp; }</div>
 		  </div>
 		  <div><br></div>
-		  <div>Puis ce fameux fichier index dans&nbsp;<span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">app/Resources/views/default/index.html.twig :</span></div>
+		  <div>Puis ce fameux fichier index dans&nbsp;app/Resources/views/default/index.html.twig :</div>
 		  <div><br></div>
 		  <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
 		    <div>{% extends 'base.html.twig' %}</div>
@@ -256,11 +258,11 @@
 		  <div><br></div>
 		  <div>Mais en ouvrant la console du navigateur, vous devriez voir des informations de ce style :</div>
 		  <br>
-		  <div><img class="en-media" src="/shard/s158/res/4e687bc6-4b23-4b90-ab8a-48cc4777b713" data-en-resource-reference="resource-3"></div>
+		  <div><img class="en-media" src="img/xhr.png" data-en-resource-reference="resource-3"></div>
 		  <div><br></div>
 		  <div>Ceci montre que l'application React a démarré, même si elle n'affiche rien pour l'instant. Il y a d'ailleurs aussi une ligne en rouge dans cette console, à propos du composant Component. C'est normal, il n'est pas encore créé.</div>
 		  <div><br></div>
-		  <div>Pour commencer à afficher quelque chose, il faut créer le fichier component.js (toujours dans&nbsp;<span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">app/Resources/js/app/) avec ce contenu par exemple :&nbsp;</span></div>
+		  <div>Pour commencer à afficher quelque chose, il faut créer le fichier component.js (toujours dans&nbsp;app/Resources/js/app/) avec ce contenu par exemple :&nbsp;</div>
 		  <div><br></div>
 		  <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
 		    <div>import React from 'react';</div>
@@ -286,7 +288,7 @@
 		  <div><br></div>
 		  <div>La configuration Bower générée par JoliCode nous a déjà téléchargé le package&nbsp;bootstrap-sass. Nous allons l'inclure dans notre fichier scss principal. Celui-ci sera compilé par Brunch.</div>
 		  <div><br></div>
-		  <div>Si on ouvre le fichier&nbsp;<span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">web/css/style.css maintenant, il ne contient que quelques lignes. Si ce fichier n'existe pas, il faut lancer une compilation brunch </span>dans un terminal :&nbsp;</div>
+		  <div>Si on ouvre le fichier&nbsp;web/css/style.css maintenant, il ne contient que quelques lignes. Si ce fichier n'existe pas, il faut lancer une compilation brunch dans un terminal :&nbsp;</div>
 		  <div>
 		    <div style="font-family:&quot;Helvetica Neue&quot;, Arial, sans;font-size:16px;"><br></div>
 		    <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
@@ -310,7 +312,7 @@
 		  <div><br></div>
 		  <div>On va donc pouvoir utiliser ses classes et son système de grille pour rendre notre site responsive.</div>
 		  <div><br></div>
-		  <div>Commençons par ajouter un menu à notre site. On ajoute quelques classes css à la fin du fichier <span style="font-family:gotham, helvetica, arial, sans-serif;font-size:14px;">app/Resources/sccs/</span>style.scss :</div>
+		  <div>Commençons par ajouter un menu à notre site. On ajoute quelques classes css à la fin du fichier app/Resources/sccs/style.scss :</div>
 		  <div><br></div>
 		  <div style="-en-codeblock: true; box-sizing: border-box; padding: 8px; font-family: Monaco, Menlo, Consolas, &quot;Courier New&quot;, monospace; font-size: 12px; color: rgb(51, 51, 51); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; background-color: rgb(251, 250, 248); border: 1px solid rgba(0, 0, 0, 0.14902); background-position: initial initial; background-repeat: initial initial;">
 		    <div>/* make sidebar nav vertical */&nbsp;</div>
@@ -384,7 +386,7 @@
 		  <div><br></div>
 		  <div>La page rafraichie ne donne pas le résultat escompté, c'est-à-dire un menu stylisé selon la configuration par défaut de Bootstrap :&nbsp;</div>
 		  <div><br></div>
-		  <div><img class="en-media" src="/shard/s158/res/0fa4732a-58db-48d3-84bd-b8f933fb96c3" data-en-resource-reference="resource-2"><br></div>
+		  <div><img class="en-media" src="img/without_bootstrap.png" data-en-resource-reference="resource-2"><br></div>
 		  <div><br></div>
 		  <div>Il faut déjà s'assurer que le style.css est bien pris en compte dans la page html générée (c'était à l'étape "application côté back"). Mais surtout le mot "class" est réservé en syntaxe JSX (si vous voulez savoir pourquoi, <a href="https://www.quora.com/Why-do-I-have-to-use-className-instead-of-class-in-ReactJs-components-done-in-JSX">c'est ici</a>). Il faut donc le remplacer par "className".</div>
 		  <div><br></div>
@@ -433,7 +435,7 @@
 		  </div>
 		  <div><br></div>
 		  <div>Ce qui donne :&nbsp;</div>
-		  <br><img class="en-media" src="/shard/s158/res/46cb94cf-37d0-46c5-903b-f20885a80968" data-en-resource-reference="resource-1">
+		  <br><img class="en-media" src="img/with_bootstrap.png" data-en-resource-reference="resource-1">
 		</div>
 	</body>
 </html>
