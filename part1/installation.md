@@ -63,8 +63,8 @@ L'élément script est vide. Ajoutez le code tel que sur la capture d'écran ci-
 
 ```js
 "scripts": {
- "start": "node webpack.dev-server.js",
- "build": "webpack"
+    "start": "node webpack.dev-server.js",
+    "build": "webpack"
  },
 ```
 
@@ -77,41 +77,41 @@ var node_modules_dir = path.join(__dirname, 'node_modules');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var config = {
- entry: [
- 'webpack-dev-server/client?http://127.0.0.1:3000',
- 'webpack/hot/only-dev-server',
- './app/Resources/js/app.js',
- './app/Resources/scss/style.scss'
- ],
- output: {
- path: path.join(__dirname, 'web/dist'),
- filename: 'bundle.js',
- publicPath: 'http://127.0.0.1:3000/static/'
- },
- plugins: [
- new webpack.HotModuleReplacementPlugin(),
- new webpack.NoErrorsPlugin(),
- new ExtractTextPlugin('style.css', { allChunks: true }),
- ],
- module: {
- loaders: [
- {
- test: /\.jsx?$/,
- include: path.join(__dirname, 'app/Resources/js'),
- exclude: node_modules_dir,
- loaders: ['react-hot', 'babel?presets[]=es2015&presets[]=react'],
- presets: ['es2015', 'react']
- },
- {
- test: /\.scss$/,
- loader: ExtractTextPlugin.extract('css!sass')
- },
- {
- test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.woff2?$|\.ttf$|\.eot$|\.svg$/,
- loader: "file?name=[name].[ext]"
- }
- ]
- }
+    entry: [
+        'webpack-dev-server/client?http://127.0.0.1:3000',
+        'webpack/hot/only-dev-server',
+        './app/Resources/js/app.js',
+        './app/Resources/scss/style.scss'
+    ],
+    output: {
+        path: path.join(__dirname, 'web/dist'),
+        filename: 'bundle.js',
+        publicPath: 'http://127.0.0.1:3000/static/'
+    },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin(),
+        new ExtractTextPlugin('style.css', { allChunks: true }),
+    ],
+    module: {
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                include: path.join(__dirname, 'app/Resources/js'),
+                exclude: node_modules_dir,
+                loaders: ['react-hot', 'babel?presets[]=es2015&presets[]=react'],
+                presets: ['es2015', 'react']
+            },
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract('css!sass')
+            },
+            {
+                test: /\.jpe?g$|\.gif$|\.png$|\.svg$|\.woff$|\.woff2?$|\.ttf$|\.eot$|\.svg$/,
+                loader: "file?name=[name].[ext]"
+            }
+        ]
+    }
 };
 module.exports = config;
 ```
@@ -124,21 +124,21 @@ var WebpackDevServer = require('webpack-dev-server');
 var config = require('./webpack.config');
 
 new WebpackDevServer(
- webpack(config),
- {
- publicPath: config.output.publicPath,
- hot: true,
- quiet: false,
- noInfo: false,
- historyApiFallback: true
- }
+    webpack(config),
+    {
+        publicPath: config.output.publicPath,
+        hot: true,
+        quiet: false,
+        noInfo: false,
+        historyApiFallback: true
+    }
 ).listen(
- 3000,
- '0.0.0.0',
- function (err, result) {
- if (err) { console.log(err); }
- console.log('Listening at 0.0.0.0:3000');
- }
+    3000,
+    '0.0.0.0',
+    function (err, result) {
+        if (err) { console.log(err); }
+        console.log('Listening at 0.0.0.0:3000');
+    }
 );
 ```
 
@@ -156,7 +156,7 @@ et la tâche \(dans un deuxième terminal\) qui sera utilisée pour le développ
 npm start
 ```
 
-Cette commande lance, selon le fichier package.json, une commande Node qui démarre le serveur de développement de webpack. Aucun fichier n'est créé, il est en mémoire du serveur webpack et servi tel quel. Inutile donc de chercher le fichier bundle.js défini dans le "output" du fichier webpack.config.js. En revanche, on peut avoir un aperçu du fichier généré en se rendant à l'adresse http:\/\/127.0.0.1:3000\/static\/bundle.js. Ce fichier sera mis à jour à chaque changement dans nos fichiers js que nous créerons dans la sous-partie "L'application côté front".
+Cette commande lance, selon le fichier package.json, une commande Node qui démarre le serveur de développement de webpack. Aucun fichier n'est créé, il est en mémoire du serveur webpack et servi tel quel. Inutile donc de chercher le fichier bundle.js défini dans le "output" du fichier webpack.config.js. En revanche, on peut avoir un aperçu du fichier généré en se rendant à l'adresse http://127.0.0.1:3000/static/bundle.js. Ce fichier sera mis à jour à chaque changement dans nos fichiers js que nous créerons dans la sous-partie "L'application côté front".
 
 Pour la production, il suffira de lancer la commande
 
@@ -173,5 +173,4 @@ webpack: bundle is now VALID.
 ```
 
 Si c'est bien le cas, on va créer l'application React. Elle sera incorporée à l'application Symfony. On va donc commencer par mettre en place les conditions pour que React puisse s'épanouir dans l'environnement qui l'accueillera.
-
 
