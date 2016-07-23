@@ -24,7 +24,7 @@ Mais en ouvrant la console du navigateur, vous devriez voir des informations de 
 
 Ceci montre que l'application React a démarré, même si elle n'affiche rien pour l'instant. Il y a d'ailleurs aussi une ligne en rouge dans cette console, à propos du composant Component. C'est normal, il n'est pas encore créé.
 
-Pour commencer à afficher quelque chose, il faut créer le fichier component.js \(toujours dans app/Resources/js/app/\) avec ce contenu par exemple :
+Pour commencer à afficher quelque chose, il faut créer le fichier component.js \(toujours dans app/Resources/js/app\) avec ce contenu par exemple :
 
 ```js
 import React from 'react';
