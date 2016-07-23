@@ -20,7 +20,7 @@ Comme on est parti pour une appli web moderne, autant coder en ES6. Il faut donc
 
 Pour démarrer facilement ce projet, nous allons télécharger Symfony et quelques paquets NPM. Bien entendu, Node et NPM doivent être installés sur votre machine de développement.
 
-##Installation
+## Installation
 
 On commence par télécharger [l'installateur Symfony tel qu'expliqué ici](http://symfony.com/doc/current/book/installation.html) :
 
@@ -196,7 +196,7 @@ webpack: bundle is now VALID.
 
 Si c'est bien le cas, on va créer l'application React. Elle sera incorporée à l'application Symfony. On va donc commencer par mettre en place les conditions pour que React puisse s'épanouir dans l'environnement qui l'accueillera.
 
-<a name="back"></a>**L'application côté back**
+## L'application côté back
 
 Par défaut, dans le dossier app\/Resources\/views, nous trouvons le fichier base.html.twig. Etant donné que ce fichier sera celui utilisé par tous les autres templates, nous devons le personnaliser comme ceci :
 
@@ -249,7 +249,7 @@ En résumé de cette partie, nous avons créé les conditions pour que React s'e
 
 Passons au plus intéressant : l'application React en elle-même.
 
-<a name="front"></a>**L'application côté front**
+## L'application côté front
 
 React fonctionne par composant. C'est-à-dire que des fichiers js vont inclure d'autres fichiers js et leur passer des objets.
 
