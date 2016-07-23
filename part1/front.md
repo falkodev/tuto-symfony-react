@@ -4,7 +4,7 @@ React fonctionne par composant. C'est-à-dire que des fichiers js vont inclure d
 
 Le composant de base s'appellera "app". Et sera rattaché au DOM par la balise "app" définie dans index.html.twig.
 
-Créons donc ce premier composant dans app/Resources/js/app/js :
+Créons donc ce premier composant dans app/Resources/js/app.js :
 
 ```js
 import React from 'react';
