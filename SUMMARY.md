@@ -2,9 +2,9 @@
 
 * [Introduction](README.md)
 * [Partie 1](part1/README.md) 
-  * Les outils 
-  * [Installation](part1/README.md#installation)
-  * L'application côté back
-  * L'application côté front
+  * Les outils (part1/tools.md) 
+  * [Installation](part1/installation.md)
+  * L'application côté back (part1/back.md)
+  * L'application côté front (part1/front.md)
 
 
