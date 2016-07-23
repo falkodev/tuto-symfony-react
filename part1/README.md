@@ -20,7 +20,7 @@ Comme on est parti pour une appli web moderne, autant coder en ES6. Il faut donc
 
 Pour démarrer facilement ce projet, nous allons télécharger Symfony et quelques paquets NPM. Bien entendu, Node et NPM doivent être installés sur votre machine de développement.
 
-##<a name="installation"></a>**Installation**
+##<a id="installation"></a>**Installation**
 
 On commence par télécharger [l'installateur Symfony tel qu'expliqué ici](http://symfony.com/doc/current/book/installation.html) :
 
