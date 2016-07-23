@@ -30,7 +30,7 @@ Par défaut, dans le dossier app\/Resources\/views, nous trouvons le fichier bas
 </html>
 ```
 
-Ce qui est intéressant ici, c'est le block `{% block javascripts %}`.
+Ce qui est intéressant ici, c'est le bloc `{% block javascripts %}`.
 
 Comme nous sommes en environnement de développement, on insert le fichier servi par Webpack depuis le port 3000 du localhost \(voir la configuration définie plus haut dans "output" de webpack.config.js\). On remarque que le body est vide, ce qui nous fera une belle page blanche. Notez aussi que le fichier css \(style.css\) est servi de la même manière que bundle.js.
 
