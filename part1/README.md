@@ -12,7 +12,7 @@ Si vous avez le choix, autant partir sur un environnement full JS avec Node en b
 
 Mais si on \(votre client, votre entreprise ou votre budget\) vous impose un hébergement mutualisé, avec PHP et MySQL comme souvent, le mieux reste de partir avec un bon vieux framework comme Symfony 2 et l'ORM Doctrine. Côté front, on pourrait aussi se contenter de la solution classique de templating Twig. Mais pourquoi se priver de pages encore plus performantes, réactives et éviter des rechargements de page si, en plus, on a un code modulaire comme le permet React ?
 
-<a name="tools">**Les outils**</a>
+<a name="tools"></a>**Les outils**
 
 Les frameworks JS modernes poussent à du code modulaire, et Webpack se marie bien à React. C'est un "bundler" ou un empaqueteur en bon français, ce qui va permettre de prendre tous les modules et leurs dépendances et d'en faire un fichier de ressource statique, un gros fichier js en somme.
 
@@ -20,7 +20,7 @@ Comme on est parti pour une appli web moderne, autant coder en ES6. Il faut donc
 
 Pour démarrer facilement ce projet, nous allons télécharger Symfony et quelques paquets NPM. Bien entendu, Node et NPM doivent être installés sur votre machine de développement.
 
-**Installation**
+<a name="installation"></a>**Installation**
 
 On commence par télécharger [l'installateur Symfony tel qu'expliqué ici](http://symfony.com/doc/current/book/installation.html) :
 
@@ -196,7 +196,7 @@ webpack: bundle is now VALID.
 
 Si c'est bien le cas, on va créer l'application React. Elle sera incorporée à l'application Symfony. On va donc commencer par mettre en place les conditions pour que React puisse s'épanouir dans l'environnement qui l'accueillera.
 
-**L'application côté back**
+<a name="back"></a>**L'application côté back**
 
 Par défaut, dans le dossier app\/Resources\/views, nous trouvons le fichier base.html.twig. Etant donné que ce fichier sera celui utilisé par tous les autres templates, nous devons le personnaliser comme ceci :
 
@@ -249,7 +249,7 @@ En résumé de cette partie, nous avons créé les conditions pour que React s'e
 
 Passons au plus intéressant : l'application React en elle-même.
 
-**L'application côté front**
+<a name="front"></a>**L'application côté front**
 
 React fonctionne par composant. C'est-à-dire que des fichiers js vont inclure d'autres fichiers js et leur passer des objets.
 
