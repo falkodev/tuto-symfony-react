@@ -5,6 +5,6 @@
   * Les outils 
   * [Installation](part1/README.md#installation)
   * L'application côté back
-  * [L'application côté front](part1/README.md#front)
+  * L'application côté front
 
 
