@@ -4,7 +4,7 @@ React fonctionne par composant. C'est-à-dire que des fichiers js vont inclure d
 
 Le composant de base s'appellera "app". Et sera rattaché au DOM par la balise "app" définie dans index.html.twig.
 
-Créons donc ce premier composant dans app\/Resources\/js\/app\/js :
+Créons donc ce premier composant dans app/Resources/js/app/js :
 
 ```js
 import React from 'react';
@@ -16,7 +16,7 @@ ReactDom.render(<Component/>, document.getElementById('app'));
 
 Félicitations, votre application React est créée. Qu'a-t-on fait ? On a dit d'importer react, c'est le minimum. Puis react-dom, qui permettra de manipuler le DOM pour afficher nos composants. Enfin, on importe un composant nommé Component. Ce composant s'affichera dans la balise "app" du fichier HTML grâce à la fonction render de react-dom.
 
-Bon si on regarde maintenant dans un navigateur l'adresse [http:\/\/localhost\/nom\_du\_projet\/web\/app\_dev.php](http://localhost/nom_du_projet/web/app_dev.php), on ne verra qu'une page blanche.
+Bon si on regarde maintenant dans un navigateur l'adresse [http://localhost/nom_du_projet/web/app_dev.php](http://localhost/nom_du_projet/web/app_dev.php), on ne verra qu'une page blanche.
 
 Mais en ouvrant la console du navigateur, vous devriez voir des informations de ce style :
 
@@ -24,17 +24,17 @@ Mais en ouvrant la console du navigateur, vous devriez voir des informations de 
 
 Ceci montre que l'application React a démarré, même si elle n'affiche rien pour l'instant. Il y a d'ailleurs aussi une ligne en rouge dans cette console, à propos du composant Component. C'est normal, il n'est pas encore créé.
 
-Pour commencer à afficher quelque chose, il faut créer le fichier component.js \(toujours dans app\/Resources\/js\/app\/\) avec ce contenu par exemple :
+Pour commencer à afficher quelque chose, il faut créer le fichier component.js \(toujours dans app/Resources/js/app/\) avec ce contenu par exemple :
 
 ```js
 import React from 'react';
 
 const Component = React.createClass({
- render: function () {
- return (
- <h1>Hello world !</h1>
- );
- }
+    render: function () {
+        return (
+            <h1>Hello world !</h1>
+        );
+    }
 });
 
 export default Component;
