@@ -5,28 +5,28 @@ Par défaut, dans le dossier app\/Resources\/views, nous trouvons le fichier bas
 ```php
 <!DOCTYPE html>
 <html>
- <head>
- <meta charset="UTF-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <title>{% block title %}Nom projet{% endblock %}</title>
- {% block stylesheets %}{% endblock %}
- {% if app.environment == 'dev' %}
- <link rel="stylesheet" href="http://127.0.0.1:3000/static/style.css"></script>
- {% else %}
- <link rel="stylesheet" href="{{ asset('dist/style.css') }}" />
- {% endif %}
- <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
- </head>
- <body>
- {% block body %}{% endblock %}
- {% block javascripts %}
- {% if app.environment == 'dev' %}
- <script src="http://127.0.0.1:3000/static/bundle.js"></script>
- {% else %}
- <script src="{{ asset('dist/bundle.js') }}"></script>
- {% endif %}
- {% endblock %}
- </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Nom projet{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        {% if app.environment == 'dev' %}
+            <link rel="stylesheet" href="http://127.0.0.1:3000/static/style.css"></script>
+        {% else %}
+            <link rel="stylesheet" href="{{ asset('dist/style.css') }}" />
+        {% endif %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+            {% if app.environment == 'dev' %}
+                <script src="http://127.0.0.1:3000/static/bundle.js"></script>
+            {% else %}
+                <script src="{{ asset('dist/bundle.js') }}"></script>
+            {% endif %}
+        {% endblock %}
+    </body>
 </html>
 ```
 
@@ -34,14 +34,14 @@ Ce qui est intéressant ici, c'est le block `{% block javascripts %}`.
 
 Comme nous sommes en environnement de développement, on insert le fichier servi par Webpack depuis le port 3000 du localhost \(voir la configuration définie plus haut dans "output" de webpack.config.js\). On remarque que le body est vide, ce qui nous fera une belle page blanche. Notez aussi que le fichier css \(style.css\) est servi de la même manière que bundle.js.
 
-Le contrôleur par défaut affiche la page index.html.twig \(qui elle-même étend base.html.twig, que nous venons de modifier\). Voir le fichier src\/AppBundle\/Controller\/DefautController.php.
+Le contrôleur par défaut affiche la page index.html.twig \(qui elle-même étend base.html.twig, que nous venons de modifier\). Voir le fichier src/AppBundle/Controller/DefautController.php.
 
-Personnalisons ce fameux fichier index dans app\/Resources\/views\/default\/index.html.twig :
+Personnalisons ce fameux fichier index dans app/Resources/views/default/index.html.twig :
 
 ```php
 {% extends 'base.html.twig' %}
 {% block body %}
- <div id="app"></div>
+    <div id="app"></div>
 {% endblock %}
 ```
 
