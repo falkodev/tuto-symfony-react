@@ -1,4 +1,4 @@
-# Tutoriel Symfony \/ React \/ Webpack \/ Babel {#tutoriel-symfony-react-webpack-babel}
+# Tutoriel Symfony / React / Webpack / Babel {#tutoriel-symfony-react-webpack-babel}
 
 Dans ce tutoriel, nous allons voir comment mettre en place une pile de développement moderne et performante, basée comme l'indique le titre sur:
 
