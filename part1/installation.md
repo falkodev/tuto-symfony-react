@@ -142,6 +142,12 @@ new WebpackDevServer(
 );
 ```
 
+Etant donné que le fichier de configuration \(webpack.config.js\) mentionne app.js et style.scss dans "entry", créons deux fichiers vides qui seront utilisés par le serveur webpack et que nous allons remplir plus tard :
+
+* dans app\/Resources\/js\/, le fichier app.js
+* dans app\/Resources\/scss, le fichier style.scss
+
+
 Tout est prêt pour commencer à coder : un serveur Node webpack.dev-server \(basé sur Express en fait\) écoute les modifications sur le code, construit et sert le fichier bundle.js selon la configuration définie dans le fichier webpack.config.js.
 
 Il reste donc à démarrer le serveur Symfony, en ligne de commande, à la racine du projet :
@@ -156,7 +162,7 @@ et la tâche \(dans un deuxième terminal\) qui sera utilisée pour le développ
 npm start
 ```
 
-Cette commande lance, selon le fichier package.json, une commande Node qui démarre le serveur de développement de webpack. Aucun fichier n'est créé, il est en mémoire du serveur webpack et servi tel quel. Inutile donc de chercher le fichier bundle.js défini dans le "output" du fichier webpack.config.js. En revanche, on peut avoir un aperçu du fichier généré en se rendant à l'adresse http://127.0.0.1:3000/static/bundle.js. Ce fichier sera mis à jour à chaque changement dans nos fichiers js que nous créerons dans la sous-partie "L'application côté front".
+Cette commande lance, selon le fichier package.json, une commande Node qui démarre le serveur de développement de webpack. Aucun fichier n'est créé, il est en mémoire du serveur webpack et servi tel quel. Inutile donc de chercher le fichier bundle.js défini dans le "output" du fichier webpack.config.js. En revanche, on peut avoir un aperçu du fichier généré en se rendant à l'adresse [http:\/\/127.0.0.1:3000\/static\/bundle.js](http://127.0.0.1:3000/static/bundle.js). Ce fichier sera mis à jour à chaque changement dans nos fichiers js que nous créerons dans la sous-partie "L'application côté front".
 
 Pour la production, il suffira de lancer la commande
 
