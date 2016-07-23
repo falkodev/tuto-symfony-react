@@ -1,4 +1,4 @@
-# Tutoriel Symfony \/ React \/ Webpack \/ Babel {#tutoriel-symfony-react-webpack-babel}
+# Tutoriel Symfony / React / Webpack / Babel {#tutoriel-symfony-react-webpack-babel}
 
 Dans ce tutoriel, nous allons voir comment mettre en place un éco-système moderne et performant. Nous allons partir du postulat que vous êtes développeur et donc pas complètement débutant sur :
 
