@@ -16,13 +16,7 @@ ReactDom.render(<Component/>, document.getElementById('app'));
 
 Félicitations, votre application React est créée. Qu'a-t-on fait ? On a dit d'importer react, c'est le minimum. Puis react-dom, qui permettra de manipuler le DOM pour afficher nos composants. Enfin, on importe un composant nommé Component. Ce composant s'affichera dans la balise "app" du fichier HTML grâce à la fonction render de react-dom.
 
-Bon si on regarde maintenant dans un navigateur l'adresse [http://localhost/nom_du_projet/web/app_dev.php](http://localhost/nom_du_projet/web/app_dev.php), on ne verra qu'une page blanche.
-
-Mais en ouvrant la console du navigateur, vous devriez voir des informations de ce style :
-
-![](../assets/xhr.png)
-
-Ceci montre que l'application React a démarré, même si elle n'affiche rien pour l'instant. Il y a d'ailleurs aussi une ligne en rouge dans cette console, à propos du composant Component. C'est normal, il n'est pas encore créé.
+Bon si on regarde maintenant dans un navigateur l'adresse [http://localhost:8000](http://localhost:8000), on ne verra qu'une page blanche.
 
 Pour commencer à afficher quelque chose, il faut créer le fichier component.js \(toujours dans app/Resources/js/app\) avec ce contenu par exemple :
 
@@ -40,9 +34,17 @@ const Component = React.createClass({
 export default Component;
 ```
 
-Ici, on déclare un composant qui s'appelle Component et qui est une classe React. Dans cette classe, la méthode render, lorsqu'elle est appelée, affiche la phrase "Hello World !". Rien de complexe donc.
+Ici, on déclare un composant qui s'appelle Component et qui est une classcome React. Dans cette classe, la méthode render, lorsqu'elle est appelée, affiche la phrase "Hello World !". Rien de complexe donc.
 
 Si on retourne sur notre navigateur, et qu'on rafraîchit, on doit voir apparaître cette phrase. Les prochaines modifications se verront sans avoir besoin de rafraîchir grâce au module Hot Reload de React installé au début. Mais après une erreur console, la page ne se rafraîchit pas.
+
+En ouvrant la console du navigateur, vous devriez voir des informations de ce style :
+
+![](../assets/xhr.png)
+
+
+Ceci montre que l'application React a démarré.
+
 
 Voilà, c'est tout pour cette partie. Dans une seconde partie, on va styliser un peu tout ça avec Twitter Bootstrap et voir des concepts plus avancés de React.
 
