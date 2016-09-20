@@ -12,7 +12,7 @@ Bootstrap-sass est un paquet NPM qui étend et compile Twitter Bootstrap en SASS
 
 Puis on l'utilise en ajoutant ces 2 lignes au début du fichier app/Resources/scss/style.scss :
 
-```
+```css
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 ```
