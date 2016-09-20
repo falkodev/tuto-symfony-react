@@ -7,4 +7,7 @@
     * [L'application côté back](part1/back.md)
     * [L'application côté front](part1/front.md)
 * [Partie 2](part2/README.md)
+    * [Installation de Twitter Bootstrap](part2/bootstrap-setup.md)
+    * [Utilisation de Twitter Bootstrap](part2/bootstrap-use.md)
+
 
