@@ -1,6 +1,6 @@
 ## L'application côté back
 
-Par défaut, dans le dossier app\/Resources\/views, nous trouvons le fichier base.html.twig. Etant donné que ce fichier sera celui utilisé par tous les autres templates, nous devons le personnaliser comme ceci :
+Par défaut, dans le dossier app/Resources/views, nous trouvons le fichier base.html.twig. Etant donné que ce fichier sera celui utilisé par tous les autres templates, nous devons le personnaliser comme ceci :
 
 ```php
 <!DOCTYPE html>
