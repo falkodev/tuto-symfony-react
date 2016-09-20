@@ -144,8 +144,8 @@ new WebpackDevServer(
 
 Etant donné que le fichier de configuration \(webpack.config.js\) mentionne app.js et style.scss dans "entry", créons deux fichiers vides qui seront utilisés par le serveur webpack et que nous allons remplir plus tard :
 
-* dans `app/Resources/js/`, le fichier app.js
-* dans `app/Resources/scss`, le fichier style.scss
+* dans app/Resources/js/, le fichier app.js
+* dans app/Resources/scss, le fichier style.scss
 
 Tout est prêt pour commencer à coder : un serveur Node webpack.dev-server \(basé sur Express en fait\) écoute les modifications sur le code, construit et sert le fichier bundle.js selon la configuration définie dans le fichier webpack.config.js.
 
