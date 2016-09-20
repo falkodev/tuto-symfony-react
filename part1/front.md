@@ -23,18 +23,15 @@ Pour commencer à afficher quelque chose, il faut créer le fichier component.js
 ```js
 import React from 'react';
 
-const Component = React.createClass({
-    render: function () {
-        return (
-            <h1>Hello world!</h1>
-        );
-    }
-});
+const Component = () => {
+    return (<h1>Hello world!</h1>);
+};
 
 export default Component;
+
 ```
 
-Ici, on déclare un composant qui s'appelle Component et qui est une classcome React. Dans cette classe, la méthode render, lorsqu'elle est appelée, affiche la phrase "Hello World !". Rien de complexe donc.
+Ici, on déclare un composant qui s'appelle Component et qui est une fonction. Dans cette classe, la méthode render, lorsqu'elle est appelée, affiche la phrase "Hello World !". Rien de complexe donc.
 
 Si on retourne sur notre navigateur, et qu'on rafraîchit, on doit voir apparaître cette phrase. Les prochaines modifications se verront sans avoir besoin de rafraîchir grâce au module Hot Reload de React installé au début. Mais après une erreur console, la page ne se rafraîchit pas.
 
