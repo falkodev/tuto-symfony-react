@@ -57,9 +57,11 @@ export default Component;
 Qu'a-t-on fait ? Rien de bien extraordinaire : on a ajouté une barre de menu et rendu le tout responsive. On peut d'ailleurs redimensionner l'écran pour s'en rendre compte.
 
 En mode desktop :
+
 ![](/assets/bootstrap_large.png)
 
 En mode mobile :
+
 ![](/assets/bootstrap_small.png)
 
-Pour rendre le compte plus propre et modulaire, ce code contenant la barre de menu sera à mettre dans un composant de layout, lui-même incluant un composant header.
+Pour rendre tout ceci plus propre et modulaire, ce code contenant la barre de menu sera à mettre dans un composant de layout, lui-même incluant un composant header.
