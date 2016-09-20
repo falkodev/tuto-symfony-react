@@ -10,9 +10,12 @@ Bootstrap-sass est un paquet NPM qui étend et compile Twitter Bootstrap en SASS
 
 `npm i bootstrap-sass --save-dev`
 
-Puis on l'utilise en ajoutant cette ligne dans le fichier app/Resources/scss/style.scss :
+Puis on l'utilise en ajoutant ces 2 lignes au début du fichier app/Resources/scss/style.scss :
 
-`@import "~bootstrap-sass/assets/stylesheets/bootstrap";`
+```
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+```
 
 React-bootstrap est un autre paquet NPM bien utile. Il remplace le JS (et donc jQuery) dans Bootstrap. Il a seulement besoin du CSS de Bootstrap (généré par le SASS du paquet précédemment cité). On a donc 2 packages complémentaires. Pour l'installation de celui-ci : 
 
