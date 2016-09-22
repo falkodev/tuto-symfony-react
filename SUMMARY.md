@@ -9,5 +9,7 @@
 * [Partie 2](part2/README.md)
     * [Installation de Twitter Bootstrap](part2/bootstrap-setup.md)
     * [Utilisation de Twitter Bootstrap](part2/bootstrap-use.md)
+    * [Code modulaire](part2/modular-code.md)
+
 
 
