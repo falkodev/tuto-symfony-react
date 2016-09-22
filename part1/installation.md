@@ -50,7 +50,7 @@ On ajoute les packages du projet. Deux bonnes grosses lignes de commande pour ç
 
 ```
 npm i react react-dom --save
-npm i react-bootstrap react-hot-loader babel-core babel-loader babel-preset-es2015 babel-preset-react bootstrap-sass css-loader extract-text-webpack-plugin file-loader node-sass sass-loader style-loader webpack webpack-dev-server --save-dev
+npm i react-bootstrap react-hot-loader@1.3.0 babel-core babel-loader babel-preset-es2015 babel-preset-react bootstrap-sass css-loader extract-text-webpack-plugin file-loader node-sass sass-loader style-loader webpack webpack-dev-server --save-dev
 ```
 
 Qu'est-ce que c'est que tous ces paquets ? De base, on aurait pu se contenter des packets babel et webpack mais les paquets concernant Sass et les loaders sont là pour intégrer Twitter Bootstrap que j'ai ajouté dans le projet.
