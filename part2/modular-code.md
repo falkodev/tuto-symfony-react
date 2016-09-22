@@ -40,7 +40,7 @@ class Layout extends React.Component {
 export default Layout;
 ```
 
-Plus propre, n'est-ce pas ? Il faut maintenant les fichiers Header, Footer et Content (importés au début du fichier). Après avoir créé les dossiers vides layout et components, on peut les remplir avec les fichier js suivants :
+Plus propre, n'est-ce pas ? Il faut maintenant les fichiers Header, Footer et Content (importés au début du fichier). Après avoir créé les dossiers vides layout et components, on peut les remplir avec les fichiers js suivants :
 
 - layout/Header.js (la copie du menu dans le fichier component.js)
 
