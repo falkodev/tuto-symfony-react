@@ -13,26 +13,28 @@ import Header from './layout/Header';
 import Footer from './layout/Footer';
 import Content from './components/Content';
 
-const Layout = () => {
-    return (
-        <Grid fluid>
-            <Row>
-                <Col sm={12}>
-                    <Header />
-                </Col>
-            </Row>
-            <Row>
-                <Col sm={12}>
-                    <Content />
-                </Col>
-            </Row>
-            <Row>
-                <Col sm={12}>
-                    <Footer />
-                </Col>
-            </Row>
-        </Grid>
-    );
+class Layout extends React.Component {
+    render () {
+        return (
+            <Grid fluid>
+                <Row>
+                    <Col sm={12}>
+                        <Header />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col sm={12}>
+                        <Content />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col sm={12}>
+                        <Footer />
+                    </Col>
+                </Row>
+            </Grid>
+        );
+    } 
 };
 
 export default Layout;
@@ -69,7 +71,7 @@ const Header = () => {
 export default Header;
 ```
 
-- layout/Footer.js
+- layout/Footer.js (avec, au passage, du style en mode inline, c'est-à-dire sans passer par un fichier css externe)
 
 ```js
 import React from 'react';
@@ -90,3 +92,28 @@ const Footer = () => {
 
 export default Footer;
 ```
+
+- components/Content.js 
+
+```js
+import React from 'react';
+import { Grid, Row, Col, Nav, Navbar, NavItem } from 'react-bootstrap';
+
+const Content = () => {
+    return (
+        <div className="content">
+            <h1>Hello world!</h1>
+        </div>
+    );
+};
+
+export default Content;
+```
+
+Par convention, les composants ont une majuscule en début de nom, mais ce n'est pas une obligation technique. 
+
+Le code est du JSX, l'extension syntaxique type XML développée par Facebook pour React. Les fichiers pourraient donc avoir l'extension .jsx, mais ça n'a pas d'importance pour Webpack au moment de la compilation.
+
+Comme les composants créés sont stateless (on verra dans une autre partie c'est que l'état dans une application React), j'ai utilisé des fonctions plutôt que des classes dans chaque composant.
+
+Cela 
