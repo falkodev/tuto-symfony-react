@@ -67,14 +67,6 @@ L'élément script est vide. Ajoutez le code tel que sur la capture d'écran ci-
     "build": "webpack"
  },
 ```
-On crée un fichier de configuration pour Babel, l'outil de transformation de ES6 en ES5 (transpileur):
-
-```js
-{
- "presets": ["react","es2015"],
- "plugins": ["react-hot-loader/babel"]
-}
-```
 
 Puis, il faut un fichier de configuration webpack.config.js à la racine du projet avec ce contenu :
 
@@ -108,7 +100,8 @@ var config = {
                 test: /\.jsx?$/,
                 include: path.join(__dirname, 'app/Resources/js'),
                 exclude: node_modules_dir,
-                loaders: ['babel?presets[]=es2015&presets[]=react']
+                loaders: ['react-hot', 'babel?presets[]=es2015&presets[]=react'],
+                presets: ['es2015', 'react']
             },
             {
                 test: /\.scss$/,
