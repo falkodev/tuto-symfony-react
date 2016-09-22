@@ -114,6 +114,17 @@ Par convention, les composants ont une majuscule en début de nom, mais ce n'est
 
 Le code est du JSX, l'extension syntaxique type XML développée par Facebook pour React. Les fichiers pourraient donc avoir l'extension .jsx, mais ça n'a pas d'importance pour Webpack au moment de la compilation.
 
-Comme les composants créés sont stateless (on verra dans une autre partie c'est que l'état dans une application React), j'ai utilisé des fonctions plutôt que des classes dans chaque composant.
+Comme les composants créés sont stateless (on verra dans une autre partie ce qu'est l'état dans une application React), j'ai utilisé des fonctions plutôt que des classes dans chaque composant :
 
-Cela 
+`const Content = () => {`
+
+Sauf pour Layout :  
+
+`class Layout extends React.Component {`
+
+
+Ceci permet de conserver le HMR (Hot Module Replacement) qui permet de recharger les éléments changées dans le sans rafraichir le navigateur.
+
+Par exemple, en modifiant "Hello world!" en "Hello!" dans Component.js, après avoir enregistré, le navigateur doit se rafraichir tout seul. Ceci grâce au fait que Layout n'est pas une fonction mais une classe.
+
+La prochaine version de HMR devrait permettre d'avoir ce rechargement automatique même sur les composants stateless avec une fonction.
