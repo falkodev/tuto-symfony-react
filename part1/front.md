@@ -23,8 +23,10 @@ Pour commencer à afficher quelque chose, il faut créer le fichier component.js
 ```js
 import React from 'react';
 
-const Component = () => {
-    return (<h1>Hello world!</h1>);
+class Component extends React.Component {
+    render () {
+        return (<h1>Hello world!</h1>);
+    }
 };
 
 export default Component;
