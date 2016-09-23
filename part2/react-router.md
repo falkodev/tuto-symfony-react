@@ -71,6 +71,7 @@ et remplacer la ligne `<Home />` par
 
 ```
 
+`children` contient le composant qui sera appelé par react-router. En ce qui concerne les propriétés (`this.props`), un élément fondamental de la philosophie React, on verra dans un autre article comment les gérer. Pour en savoir plus dès maintenant : 
 
 
 - app.js :
