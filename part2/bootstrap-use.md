@@ -61,7 +61,7 @@ Qu'a-t-on fait ? Rien de bien extraordinaire : on a ajouté une barre de menu et
 * serveur php : `php app/console server:run`
 
 
-Puis dans un navigateur : [http:\/\/localhost:8000](http://localhost:8000)
+Puis dans un navigateur : [http://localhost:8000](http://localhost:8000)
 
 En mode desktop :
 
