@@ -10,6 +10,8 @@
     * [Installation de Twitter Bootstrap](part2/bootstrap-setup.md)
     * [Utilisation de Twitter Bootstrap](part2/bootstrap-use.md)
     * [Code modulaire](part2/modular-code.md)
+    * [React-router](part2/react-router.md)
+
 
 
 
