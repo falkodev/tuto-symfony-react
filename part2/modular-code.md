@@ -42,7 +42,7 @@ export default Layout;
 
 Plus propre, n'est-ce pas ? Il faut maintenant les fichiers Header, Footer et Home \(importés au début du fichier\). Au passage, on peut supprimer le fichier component.js, il ne servira plus dans ce tutoriel. Après avoir créé les dossiers vides `layout` et `components`, on peut les remplir avec les fichiers js suivants :
 
-* layout\/Header.js \(la copie du menu dans le fichier component.js\)
+* layout/Header.js \(la copie du menu dans le fichier component.js\)
 
 ```js
 import React from 'react';
@@ -71,7 +71,7 @@ const Header = () => {
 export default Header;
 ```
 
-* layout\/Footer.js \(avec, au passage, du [style en mode inline](https://facebook.github.io/react/tips/inline-styles.html), c'est-à-dire sans passer par un fichier css externe\)
+* layout/Footer.js \(avec, au passage, du [style en mode inline](https://facebook.github.io/react/tips/inline-styles.html), c'est-à-dire sans passer par un fichier css externe\)
 
 ```js
 import React from 'react';
@@ -93,7 +93,7 @@ const Footer = () => {
 export default Footer;
 ```
 
-* components\/Home.js 
+* components/Home.js 
 
 ```js
 import React from 'react';
