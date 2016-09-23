@@ -1,4 +1,4 @@
-# Tutoriel Symfony \/ React \/ Webpack \/ Babel {#tutoriel-symfony-react-webpack-babel}
+# Tutoriel Symfony / React / Webpack / Babel {#tutoriel-symfony-react-webpack-babel}
 
 Dans cette deuxième partie, nous allons découvrir :
 
