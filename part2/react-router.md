@@ -27,3 +27,108 @@ const Page1 = () => {
 export default Page1;
 ```
 
+- components/Page2.js
+
+
+
+```js
+
+import React from 'react';
+
+const Page2 = () => {
+    return (
+        <div>
+            <h1>Titre page 2</h1>
+            <div>Contenu page 2</div>
+         </div>
+    );
+};
+
+export default Page2;
+
+```
+
+Rien de bien extraordinaire, mais là où ça va devenir intéressant c'est quand on va modifier la barre de menus et ajouter le routeur dans app.
+
+- layout/Header.js : Remplacer les lignes 15, 16 et 17 : 
+
+```js
+<NavItem href="home">Accueil</NavItem>
+<NavItem href="page1">Menu 1</NavItem>
+<NavItem href="page2">Menu 2</NavItem>
+```
+
+La différence avec la version précédente de ce fichier est qu'on a modifié les liens href du menu.
+
+- Layout.js : 
+
+
+```js
+
+import React from 'react';
+
+import { Grid, Row, Col } from 'react-bootstrap';
+
+import Header from './layout/Header';
+
+import Footer from './layout/Footer';
+
+import Home from './components/Home';
+
+
+
+class Layout extends React.Component {
+
+ render () {
+
+ return (
+
+ <Grid fluid>
+
+ <Row>
+
+ <Col sm={12}>
+
+ <Header />
+
+ </Col>
+
+ </Row>
+
+ <Row>
+
+ <Col sm={12}>
+
+ <Home />
+
+ </Col>
+
+ </Row>
+
+ <Row>
+
+ <Col sm={12}>
+
+ <Footer />
+
+ </Col>
+
+ </Row>
+
+ </Grid>
+
+ );
+
+ }
+
+};
+
+
+
+export default Layout;
+
+```
+
+
+- app.js :
+
