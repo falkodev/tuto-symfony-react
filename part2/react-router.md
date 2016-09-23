@@ -48,6 +48,24 @@ export default Page2;
 
 ```
 
+- components/NoMatch.js :
+
+```js
+import React from 'react';
+
+const NoMatch = () => {
+    return (
+        <div>
+            <h1>404</h1>
+            <div>Page non trouvée</div>
+        </div>
+    );
+};
+
+export default NoMatch;
+```
+
+
 Rien de bien extraordinaire, mais là où ça va devenir intéressant c'est quand on va modifier la barre de menus et ajouter le routeur dans app.
 
 - layout/Header.js : Remplacer les lignes 15, 16 et 17 : 
@@ -73,6 +91,34 @@ et remplacer la ligne `<Home />` par
 
 `children` contient le composant qui sera appelé par react-router. En ce qui concerne les propriétés (`this.props`), un élément fondamental de la philosophie React, on verra dans un autre article comment les gérer. Pour en savoir plus dès maintenant : 
 
+[https://facebook.github.io/react/docs/multiple-components.html](https://facebook.github.io/react/docs/multiple-components.html)
 
 - app.js :
 
+```js
+import React from 'react';
+import ReactDom from 'react-dom';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+
+import Layout from './Layout';
+import Home from './components/Home';
+import Page1 from './components/Page1';
+import Page2 from './components/Page2';
+import NoMatch from './components/NoMatch';
+
+ReactDom.render((
+    <Router history={browserHistory}>
+        <Route path="/" component={Layout}>
+            <IndexRoute component={Home} />
+            <Route path="/home" component={Home} />
+            <Route path="/page1" component={Page1} />        
+            <Route path="/page2" component={Page2} />
+            <Route path="*" component={NoMatch} />    
+        </Route>
+    </Router>
+), document.getElementById('app'));
+```
+
+Le composant `app` est celui qui est le plus modifié puisque c'est lui qui intègre le router et donc les routes. 
+
+Dans une
