@@ -111,7 +111,7 @@ export default Home;
 
 Par convention, les composants ont une majuscule en début de nom, mais ce n'est pas une obligation technique.
 
-Le code est du JSX, l'extension syntaxique type XML développée par Facebook pour React. Les fichiers pourraient donc avoir l'extension .jsx, mais ça n'a pas d'importance pour Webpack au moment de la compilation.
+Le code est du JSX, l'extension syntaxique type XML développée par Facebook pour React. Les fichiers pourraient donc avoir l'extension .jsx. Cependant, ça n'a pas d'importance pour Webpack au moment de la compilation.
 
 Comme les composants créés sont stateless \(on verra dans une autre partie ce qu'est l'état dans une application React\), j'ai utilisé des fonctions plutôt que des classes dans chaque composant :
 
