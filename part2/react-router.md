@@ -121,4 +121,4 @@ ReactDom.render((
 
 Le composant `app` est celui qui est le plus modifié puisque c'est lui qui intègre le router et donc les routes. 
 
-Dans une
+Dans une application plus importante, les routes pourraient être importées depuis un autre fichier pour éviter de surcharger celui-ci.
