@@ -14,7 +14,6 @@ On ajoute d'autres composants, qui seront comme des pages visuellement :
 
 ```js
 import React from 'react';
-import { Grid, Row, Col, Nav, Navbar, NavItem } from 'react-bootstrap';
 
 const Page1 = () => {
     return (
