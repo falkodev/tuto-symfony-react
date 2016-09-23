@@ -2,7 +2,7 @@
 
 Un des forces de React, c'est de permettre d'imbriquer des modules. Bon, c'est le cas de tout framework moderne, pas forcément JS. Mais avec React, on réfléchit en composants.
 
-Nous allons concrètement mettre en oeuvre cette philosophie en créant un assemblage de composants à travers un layout (disposition en bon français).
+Nous allons concrètement mettre en oeuvre cette philosophie en créant un assemblage de composants à travers un layout \(disposition en bon français\).
 
 Pour cela, créons un composant Layout.js à la racine du projet :
 
@@ -40,9 +40,9 @@ class Layout extends React.Component {
 export default Layout;
 ```
 
-Plus propre, n'est-ce pas ? Il faut maintenant les fichiers Header, Footer et Content (importés au début du fichier). Au passage, on peut supprimer le fichier component.js, il ne servira plus dans ce tutoriel. Après avoir créé les dossiers vides `layout` et `components`, on peut les remplir avec les fichiers js suivants :
+Plus propre, n'est-ce pas ? Il faut maintenant les fichiers Header, Footer et Home \(importés au début du fichier\). Au passage, on peut supprimer le fichier component.js, il ne servira plus dans ce tutoriel. Après avoir créé les dossiers vides `layout` et `components`, on peut les remplir avec les fichiers js suivants :
 
-- layout/Header.js (la copie du menu dans le fichier component.js)
+* layout\/Header.js \(la copie du menu dans le fichier component.js\)
 
 ```js
 import React from 'react';
@@ -71,7 +71,7 @@ const Header = () => {
 export default Header;
 ```
 
-- layout/Footer.js (avec, au passage, du style en mode inline, c'est-à-dire sans passer par un fichier css externe)
+* layout\/Footer.js \(avec, au passage, du style en mode inline, c'est-à-dire sans passer par un fichier css externe\)
 
 ```js
 import React from 'react';
@@ -93,7 +93,7 @@ const Footer = () => {
 export default Footer;
 ```
 
-- components/Home.js 
+* components\/Home.js 
 
 ```js
 import React from 'react';
@@ -109,21 +109,21 @@ const Home = () => {
 export default Home;
 ```
 
-Par convention, les composants ont une majuscule en début de nom, mais ce n'est pas une obligation technique. 
+Par convention, les composants ont une majuscule en début de nom, mais ce n'est pas une obligation technique.
 
 Le code est du JSX, l'extension syntaxique type XML développée par Facebook pour React. Les fichiers pourraient donc avoir l'extension .jsx, mais ça n'a pas d'importance pour Webpack au moment de la compilation.
 
-Comme les composants créés sont stateless (on verra dans une autre partie ce qu'est l'état dans une application React), j'ai utilisé des fonctions plutôt que des classes dans chaque composant :
+Comme les composants créés sont stateless \(on verra dans une autre partie ce qu'est l'état dans une application React\), j'ai utilisé des fonctions plutôt que des classes dans chaque composant :
 
 `const Home = () => {`
 
-Sauf pour Layout :  
+Sauf pour Layout :
 
 `class Layout extends React.Component {`
 
-
-Ceci permet de conserver le HMR (Hot Module Replacement) qui permet de recharger les éléments changées dans le sans rafraichir le navigateur.
+Ceci permet de conserver le HMR \(Hot Module Replacement\) qui permet de recharger les éléments changées dans le sans rafraichir le navigateur.
 
 Par exemple, en modifiant "Hello world!" en "Hello!" dans Component.js, après avoir enregistré, le navigateur doit se rafraichir tout seul. Ceci grâce au fait que Layout n'est pas une fonction mais une classe.
 
 La prochaine version de HMR devrait permettre d'avoir ce rechargement automatique même sur les composants stateless avec une fonction.
+
