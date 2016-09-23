@@ -11,7 +11,7 @@ import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
-import Content from './components/Content';
+import Home from './components/Home';
 
 class Layout extends React.Component {
     render () {
@@ -24,7 +24,7 @@ class Layout extends React.Component {
                 </Row>
                 <Row>
                     <Col sm={12}>
-                        <Content />
+                        <Home />
                     </Col>
                 </Row>
                 <Row>
@@ -40,7 +40,7 @@ class Layout extends React.Component {
 export default Layout;
 ```
 
-Plus propre, n'est-ce pas ? Il faut maintenant les fichiers Header, Footer et Content (importés au début du fichier). Après avoir créé les dossiers vides layout et components, on peut les remplir avec les fichiers js suivants :
+Plus propre, n'est-ce pas ? Il faut maintenant les fichiers Header, Footer et Content (importés au début du fichier). Au passage, on peut supprimer le fichier component.js, il ne servira plus dans ce tutoriel. Après avoir créé les dossiers vides `layout` et `components`, on peut les remplir avec les fichiers js suivants :
 
 - layout/Header.js (la copie du menu dans le fichier component.js)
 
@@ -93,13 +93,13 @@ const Footer = () => {
 export default Footer;
 ```
 
-- components/Content.js 
+- components/Home.js 
 
 ```js
 import React from 'react';
 import { Grid, Row, Col, Nav, Navbar, NavItem } from 'react-bootstrap';
 
-const Content = () => {
+const Home = () => {
     return (
         <div className="content">
             <h1>Hello world!</h1>
@@ -107,7 +107,7 @@ const Content = () => {
     );
 };
 
-export default Content;
+export default Home;
 ```
 
 Par convention, les composants ont une majuscule en début de nom, mais ce n'est pas une obligation technique. 
@@ -116,7 +116,7 @@ Le code est du JSX, l'extension syntaxique type XML développée par Facebook po
 
 Comme les composants créés sont stateless (on verra dans une autre partie ce qu'est l'état dans une application React), j'ai utilisé des fonctions plutôt que des classes dans chaque composant :
 
-`const Content = () => {`
+`const Home = () => {`
 
 Sauf pour Layout :  
 
