@@ -62,73 +62,15 @@ La différence avec la version précédente de ce fichier est qu'on a modifié l
 
 - Layout.js :  Supprimer la ligne 5 : 
 
+`import Home from './components/Home';`
 
+et remplacer la ligne `<Home />` par 
 
 ```js
-
-import React from 'react';
-
-import { Grid, Row, Col } from 'react-bootstrap';
-
-import Header from './layout/Header';
-
-import Footer from './layout/Footer';
-
-import Home from './components/Home';
-
-
-
-class Layout extends React.Component {
-
- render () {
-
- return (
-
- <Grid fluid>
-
- <Row>
-
- <Col sm={12}>
-
- <Header />
-
- </Col>
-
- </Row>
-
- <Row>
-
- <Col sm={12}>
-
- <Home />
-
- </Col>
-
- </Row>
-
- <Row>
-
- <Col sm={12}>
-
- <Footer />
-
- </Col>
-
- </Row>
-
- </Grid>
-
- );
-
- }
-
-};
-
-
-
-export default Layout;
+{this.props.children}
 
 ```
+
 
 
 - app.js :
