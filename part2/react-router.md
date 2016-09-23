@@ -124,13 +124,7 @@ Le composant `app` est celui qui est le plus modifié puisque c'est lui qui int�
 Dans une application plus importante, les routes pourraient être importées depuis un autre fichier pour éviter de surcharger celui-ci.
 
 Le router est connecté à l'API history du navigateur grâce à `browserHistory`. Il utilise plusieurs routes (`home`, `page1`, `page2`) héritant d'une route principale (`/`). On pourrait donc imaginer d'avoir des routes imbriquées telles que products/product1/details de cette manière : 
-<Route path="/" component={Layout}>
- <Route path="/home" component={Home} />
 
- <Route path="/page1" component={Page1} />
-
- <Route path="/page2" component={Page2} />
-
- <Route path="*" component={NoMatch} />
-
+<Route path="products" component={Products}>
+ <Route path="product1" component={Produc} />
  </Route>
