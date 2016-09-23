@@ -60,7 +60,8 @@ Rien de bien extraordinaire, mais là où ça va devenir intéressant c'est quan
 
 La différence avec la version précédente de ce fichier est qu'on a modifié les liens href du menu.
 
-- Layout.js : 
+- Layout.js :  Supprimer la ligne 5 : 
+
 
 
 ```js
