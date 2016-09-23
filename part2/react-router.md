@@ -139,9 +139,10 @@ Un très bon article sur react-router : [https://css-tricks.com/learning-react-r
 
 On remarque dans app.js une ligne avec `<IndexRoute>`. C'est la manière de déclarer une route par défaut.
 
-Pour résumer, par défaut (en tapant localhost:8000 donc), le routeur va chercher la route `/`, c'est-à-dire le layout, mais comme IndexRoute est précisé, il charge dans ce layout, le composant Home.
+Pour résumer, par défaut (en tapant localhost:8000 donc), le routeur va chercher la route `/`, c'est-à-dire le layout, mais comme `IndexRoute` est précisé, il charge dans ce layout, le composant `Home`.
 
-Ensuite, si on navigue vers localhost:8000/page1 par exemple, le contenu de Page1 s'affichera dans le layout.
+Ensuite, si on navigue vers localhost:8000/page1 par exemple, le contenu de `Page1` s'affichera dans le layout.
 
-Si on navigue vers une url qui n'est pas prise en charge (par exemple localhost:8000/zzzz), le routeur affichera le composant NoMatch.
+Si on navigue vers une url qui n'est pas prise en charge (par exemple localhost:8000/zzzz), le routeur affichera le composant `NoMatch`.
 
+![](/assets/Capture d’écran 2016-09-23 à 14.35.33.png)
