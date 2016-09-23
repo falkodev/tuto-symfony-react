@@ -121,9 +121,9 @@ Sauf pour Layout :
 
 `class Layout extends React.Component {`
 
-Ceci permet de conserver le HMR \(Hot Module Replacement\) qui permet de recharger les éléments changées dans le sans rafraichir le navigateur.
+Ceci permet de conserver le HMR \(Hot Module Replacement\) qui permet de recharger les éléments changés sans rafraichir le navigateur.
 
-Par exemple, en modifiant "Hello world!" en "Hello!" dans Component.js, après avoir enregistré, le navigateur doit se rafraichir tout seul. Ceci grâce au fait que Layout n'est pas une fonction mais une classe.
+Par exemple, en modifiant "Hello world!" en "Hello!" dans Component.js : après avoir enregistré, le navigateur doit se rafraichir tout seul. Ceci grâce au fait que Layout n'est pas une fonction mais une classe.
 
 La prochaine version de HMR devrait permettre d'avoir ce rechargement automatique même sur les composants stateless avec une fonction.
 
