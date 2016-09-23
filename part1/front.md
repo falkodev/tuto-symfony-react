@@ -16,7 +16,7 @@ ReactDom.render(<Component/>, document.getElementById('app'));
 
 Félicitations, votre application React est créée. Qu'a-t-on fait ? On a dit d'importer react, c'est le minimum. Puis react-dom, qui permettra de manipuler le DOM pour afficher nos composants. Enfin, on importe un composant nommé Component. Ce composant s'affichera dans la balise "app" du fichier HTML grâce à la fonction render de react-dom.
 
-Bon si on regarde maintenant dans un navigateur l'adresse [http:\/\/localhost:8000](http://localhost:8000) (après avoir démarré le serveur node avec `npm start` et le serveur php avec `php app/console server:run`), on ne verra qu'une page blanche.
+Bon si on regarde maintenant dans un navigateur l'adresse [http:\/\/localhost:8000](http://localhost:8000) \(après avoir démarré le serveur node avec `npm start` et le serveur php avec `php app/console server:run`\), on ne verra qu'une page blanche.
 
 Pour commencer à afficher quelque chose, il faut créer le fichier component.js \(toujours dans app\/Resources\/js\/app\) avec ce contenu par exemple :
 
@@ -30,7 +30,6 @@ class Component extends React.Component {
 };
 
 export default Component;
-
 ```
 
 Ici, on déclare un composant qui s'appelle Component et qui est une fonction. Dans cette classe, la méthode render, lorsqu'elle est appelée, affiche la phrase "Hello World !". Rien de complexe donc.
