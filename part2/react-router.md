@@ -123,8 +123,25 @@ Le composant `app` est celui qui est le plus modifié puisque c'est lui qui int�
 
 Dans une application plus importante, les routes pourraient être importées depuis un autre fichier pour éviter de surcharger celui-ci.
 
-Le router est connecté à l'API history du navigateur grâce à `browserHistory`. Il utilise plusieurs routes (`home`, `page1`, `page2`) héritant d'une route principale (`/`). On pourrait donc imaginer d'avoir des routes imbriquées telles que products/product1/details de cette manière : 
+Le router est connecté à l'API history du navigateur grâce à `browserHistory`. Il utilise plusieurs routes (`home`, `page1`, `page2`) héritant d'une route principale (`/`). 
 
-<Route path="products" component={Products}>
- <Route path="product1" component={Produc} />
- </Route>
+On pourrait donc imaginer d'avoir des routes imbriquées telles que page1/souspage1/details de cette manière : 
+
+```js
+<Route path="page1" component={Page1}>
+    <Route path="souspage1" component={SousPage1}>
+        <Route path="details" component={Details}>
+    </Route>
+</Route>
+```
+
+Un très bon article sur react-router : [https://css-tricks.com/learning-react-router/](https://css-tricks.com/learning-react-router/)
+
+On remarque dans app.js une ligne avec `<IndexRoute>`. C'est la manière de déclarer une route par défaut.
+
+Pour résumer, par défaut (en tapant localhost:8000 donc), le routeur va chercher la route `/`, c'est-à-dire le layout, mais comme IndexRoute est précisé, il charge dans ce layout, le composant Home.
+
+Ensuite, si on navigue vers localhost:8000/page1 par exemple, le contenu de Page1 s'affichera dans le layout.
+
+Si on navigue vers une url qui n'est pas prise en charge (par exemple localhost:8000/zzzz), le routeur affichera le composant NoMatch.
+
