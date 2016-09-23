@@ -4,7 +4,7 @@ React fonctionne par composant. C'est-à-dire que des fichiers js vont inclure d
 
 Le composant de base s'appellera "app". Et sera rattaché au DOM par la balise "app" définie dans index.html.twig.
 
-Créons donc ce premier composant dans app\/Resources\/js\/app.js :
+Créons donc ce premier composant dans app/Resources/js/app.js :
 
 ```js
 import React from 'react';
@@ -16,9 +16,9 @@ ReactDom.render(<Component/>, document.getElementById('app'));
 
 Félicitations, votre application React est créée. Qu'a-t-on fait ? On a dit d'importer react, c'est le minimum. Puis react-dom, qui permettra de manipuler le DOM pour afficher nos composants. Enfin, on importe un composant nommé Component. Ce composant s'affichera dans la balise "app" du fichier HTML grâce à la fonction render de react-dom.
 
-Bon si on regarde maintenant dans un navigateur l'adresse [http:\/\/localhost:8000](http://localhost:8000) \(après avoir démarré le serveur node avec `npm start` et le serveur php avec `php app/console server:run`\), on ne verra qu'une page blanche.
+Bon si on regarde maintenant dans un navigateur l'adresse [http://localhost:8000](http://localhost:8000) \(après avoir démarré le serveur node avec `npm start` et le serveur php avec `php app/console server:run`\), on ne verra qu'une page blanche.
 
-Pour commencer à afficher quelque chose, il faut créer le fichier component.js \(toujours dans app\/Resources\/js\/app\) avec ce contenu par exemple :
+Pour commencer à afficher quelque chose, il faut créer le fichier component.js \(toujours dans app/Resources/js/app\) avec ce contenu par exemple :
 
 ```js
 import React from 'react';
