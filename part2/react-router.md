@@ -8,3 +8,23 @@ De ce besoin, la communauté React a su proposer plusieurs solutions, dont une q
 
 On commence par l'installer :  `npm i react-router --save`
 
+On ajoute d'autres composants, qui seront comme des pages visuellement :
+
+- components/Page1.js
+
+```js
+import React from 'react';
+import { Grid, Row, Col, Nav, Navbar, NavItem } from 'react-bootstrap';
+
+const Page1 = () => {
+    return (
+        <div>
+            <h1>Titre page 1</h1>
+            <div>Contenu page 1</div>
+        </div>
+    );
+};
+
+export default Page1;
+```
+
