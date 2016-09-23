@@ -75,7 +75,7 @@ export default Header;
 
 ```js
 import React from 'react';
-import { Grid, Row, Col, Nav, Navbar, NavItem } from 'react-bootstrap';
+
 const Footer = () => {
     return (
         <div style={{
@@ -97,7 +97,6 @@ export default Footer;
 
 ```js
 import React from 'react';
-import { Grid, Row, Col, Nav, Navbar, NavItem } from 'react-bootstrap';
 
 const Home = () => {
     return (
