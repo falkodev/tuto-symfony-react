@@ -7,3 +7,4 @@ Dans ce tutoriel, nous allons voir comment mettre en place une pile de développ
 * Webpack, l'empaqueteur et gestionnaire de ressources qui se marie bien avec React,
 * Babel, pour écrire de l'ES6, ce qui est plus pratique et sexy que de l'ES5 quand même.
 
+Les sources finales sont disponibles à cette adresse : https://github.com/falkodev/tuto-symfony-react-webpack-babel
