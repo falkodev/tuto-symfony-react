@@ -14,7 +14,7 @@ const Component = () => {
 export default Component;
 ```
 
-Nous allons maintenant l'améliorer un peu : 
+Nous allons maintenant l'améliorer un peu :
 
 ```js
 import React from 'react';
@@ -54,7 +54,14 @@ const Component = () => {
 export default Component;
 ```
 
-Qu'a-t-on fait ? Rien de bien extraordinaire : on a ajouté une barre de menu et rendu le tout responsive. On peut d'ailleurs redimensionner l'écran pour s'en rendre compte.
+Qu'a-t-on fait ? Rien de bien extraordinaire : on a ajouté une barre de menu et rendu le tout responsive. On peut d'ailleurs redimensionner l'écran pour s'en rendre compte. Si les serveurs ne sont pas démarrés, deux terminaux à lancer :
+
+* serveur node : `npm start`
+
+* serveur php : `php app/console server:run`
+
+
+Puis dans un navigateur : [http:\/\/localhost:8000](http://localhost:8000)
 
 En mode desktop :
 
@@ -65,3 +72,4 @@ En mode mobile :
 ![](/assets/bootstrap_small.png)
 
 Pour rendre tout ceci plus propre et modulaire, ce code contenant la barre de menu sera à mettre dans un composant de layout, lui-même incluant un composant header.
+
