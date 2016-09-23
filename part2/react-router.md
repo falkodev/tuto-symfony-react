@@ -119,7 +119,7 @@ ReactDom.render((
 ), document.getElementById('app'));
 ```
 
-Le composant `app` est celui qui est le plus modifié puisque c'est lui qui intègre le router et donc les routes. 
+Le composant `app` est celui qui est le plus modifié puisque c'est lui qui intègre le routeur et donc les routes. 
 
 Dans une application plus importante, les routes pourraient être importées depuis un autre fichier pour éviter de surcharger celui-ci.
 
@@ -130,7 +130,7 @@ On pourrait donc imaginer d'avoir des routes imbriquées telles que page1/souspa
 ```js
 <Route path="page1" component={Page1}>
     <Route path="souspage1" component={SousPage1}>
-        <Route path="details" component={Details}>
+        <Route path="details" component={Details} />
     </Route>
 </Route>
 ```
