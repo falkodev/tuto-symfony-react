@@ -71,7 +71,7 @@ const Header = () => {
 export default Header;
 ```
 
-* layout\/Footer.js \(avec, au passage, du style en mode inline, c'est-à-dire sans passer par un fichier css externe\)
+* layout\/Footer.js \(avec, au passage, du [style en mode inline](https://facebook.github.io/react/tips/inline-styles.html), c'est-à-dire sans passer par un fichier css externe\)
 
 ```js
 import React from 'react';
