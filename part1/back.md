@@ -1,6 +1,6 @@
 ## L'application côté back
 
-Par défaut, dans le dossier app/Resources/views, nous trouvons le fichier base.html.twig. Etant donné que ce fichier sera celui utilisé par tous les autres templates, nous devons le personnaliser comme ceci :
+Par défaut, dans le dossier app\/Resources\/views, nous trouvons le fichier base.html.twig. Etant donné que ce fichier sera celui utilisé par tous les autres templates, nous devons le personnaliser comme ceci :
 
 ```php
 <!DOCTYPE html>
@@ -45,9 +45,9 @@ Personnalisons ce fameux fichier index dans `app/Resources/views/default/index.h
 {% endblock %}
 ```
 
-Voilà pour la partie twig. 
+Voilà pour la partie twig.
 
-Modifions légèrement la route utilisée dans le contrôleur `src/AppBundle/Controller/DefautController.php` aussi : 
+Modifions légèrement la route utilisée dans le contrôleur `src/AppBundle/Controller/DefautController.php` aussi :
 
 ```php
 <?php
@@ -70,11 +70,11 @@ class DefaultController extends Controller
 }
 ```
 
-Ainsi, toutes les urls seront gérées par ce contrôleur
-et React va prendre la suite en gérant le html et l'état des objets de l'application front.
+Ainsi, toutes les urls seront gérées par ce contrôleur et React va prendre la suite en gérant le html et l'état des objets de l'application front.
 
-Dans le cadre d'une application avec d'autres contrôleurs, il faudrait juste veiller à placer cette route en dernier dans le routing (voir le fichier `app/config/routing.yml` où il n'y a qu'un lien vers ce contrôleur pour l'instant), pour ne pas écraser la gestion des autres routes.
+Dans le cadre d'une application avec d'autres contrôleurs, il faudrait juste veiller à placer cette route en dernier dans le routing \(voir le fichier `app/config/routing.yml` où il n'y a qu'un lien vers ce contrôleur pour l'instant\), pour ne pas écraser la gestion des autres routes.
 
 En résumé de cette partie, nous avons créé les conditions pour que React s'exécute au sein de notre application Symfony en ajoutant une simple balise div avec un id qui vaut "app".
 
 Passons au plus intéressant : l'application React en elle-même.
+
