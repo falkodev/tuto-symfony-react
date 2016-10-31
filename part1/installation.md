@@ -161,7 +161,7 @@ et la tâche \(dans un deuxième terminal\) qui sera utilisée pour le développ
 npm start
 ```
 
-Cette commande lance, selon le fichier package.json, une commande Node qui démarre le serveur de développement de webpack. Aucun fichier n'est créé, il est en mémoire du serveur webpack et servi tel quel. Inutile donc de chercher le fichier bundle.js défini dans le "output" du fichier webpack.config.js. En revanche, on peut avoir un aperçu du fichier généré en se rendant à l'adresse [http:\/\/127.0.0.1:3000\/static\/bundle.js](http://127.0.0.1:3000/static/bundle.js). Ce fichier sera mis à jour à chaque changement dans les fichiers js que nous créerons dans la sous-partie "L'application côté front".
+Cette commande lance, selon le fichier package.json, une commande Node qui démarre le serveur de développement de webpack. Aucun fichier n'est créé, il est en mémoire du serveur webpack et servi tel quel. Inutile donc de chercher le fichier bundle.js défini dans le "output" du fichier webpack.config.js. En revanche, on peut avoir un aperçu du fichier généré en se rendant à l'adresse [http://127.0.0.1:3000/static/bundle.js](http://127.0.0.1:3000/static/bundle.js). Ce fichier sera mis à jour à chaque changement dans les fichiers js que nous créerons dans la sous-partie "L'application côté front".
 
 Pour la production, il suffira de lancer la commande
 
