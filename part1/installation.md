@@ -142,7 +142,12 @@ new WebpackDevServer(
 );
 ```
 
-Etant donné que le fichier de configuration \(webpack.config.js\) mentionne app.js et style.scss dans "entry", créons deux fichiers vides qui seront utilisés par le serveur webpack et que nous allons remplir plus tard :
+Etant donné que le fichier de configuration \(webpack.config.js\) mentionne app.js et style.scss dans "entry", créons deux dossiers dans le dossier "app/Resources" :
+
+* js 
+* scss
+
+puis deux fichiers vides qui seront utilisés par le serveur webpack et que nous allons remplir plus tard :
 
 * dans app/Resources/js, le fichier app.js
 * dans app/Resources/scss, le fichier style.scss
