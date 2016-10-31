@@ -11,7 +11,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import Component from './component.js';
 
-ReactDom.render(<Component/>, document.getElementById('app'));
+ReactDom.render(<Component />, document.getElementById('app'));
 ```
 
 Félicitations, votre application React est créée. Qu'a-t-on fait ? On a dit d'importer react, c'est le minimum. Puis react-dom, qui permettra de manipuler le DOM pour afficher nos composants. Enfin, on importe un composant nommé Component. Ce composant s'affichera dans la balise "app" du fichier HTML grâce à la fonction render de react-dom.
