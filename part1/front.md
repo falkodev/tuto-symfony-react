@@ -18,7 +18,7 @@ Félicitations, votre application React est créée. Qu'a-t-on fait ? On a dit d
 
 Bon si on regarde maintenant dans un navigateur l'adresse [http://localhost:8000](http://localhost:8000) \(après avoir démarré le serveur node avec `npm start` et le serveur php avec `php app/console server:run`\), on ne verra qu'une page blanche.
 
-Pour commencer à afficher quelque chose, il faut créer le fichier component.js \(toujours dans app/Resources/js/app\) avec ce contenu par exemple :
+Pour commencer à afficher quelque chose, il faut créer le fichier component.js \(toujours dans app/Resources/js/\) avec ce contenu par exemple :
 
 ```js
 import React from 'react';
