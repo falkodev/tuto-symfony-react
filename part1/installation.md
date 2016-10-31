@@ -49,7 +49,7 @@ Cela crée un fichier package.json quasiment vide. J'ai ajouté l'option "-f" po
 On ajoute les packages du projet. Deux bonnes grosses lignes de commande pour ça :
 
 ```
-npm i react react-dom react-router@2.8.1 --save
+npm i react react-dom --save
 npm i react-bootstrap react-hot-loader@1.3.0 babel-core babel-loader babel-preset-es2015 babel-preset-react bootstrap-sass css-loader extract-text-webpack-plugin file-loader node-sass sass-loader style-loader webpack webpack-dev-server --save-dev
 ```
 
