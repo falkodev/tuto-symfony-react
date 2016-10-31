@@ -3,7 +3,7 @@
 Dans ce tutoriel, nous allons voir comment mettre en place un éco-système moderne et performant. Nous allons partir du postulat que vous êtes développeur et donc pas complètement débutant sur :
 
 * Symfony, son intérêt et son fonctionnement, sans forcément être expert,
-* React \(le M de MVC comme clame Facebook, son promoteur\) et l'ES6,
+* React \(le V de MVC comme clame Facebook, son promoteur\) et l'ES6,
 * la ligne de commande et les paquets NPM.
 
 Le but de cet article est plus de montrer comment avoir une stack complète et faire travailler ensemble ces outils plutôt que d'enseigner un langage ou un framework.
