@@ -109,6 +109,18 @@ const Home = () => {
 export default Home;
 ```
 
+On peut désormais supprimer le fichier component.js et mettre à jour le fichier app.js comme ceci :
+
+```js
+
+import React from 'react'; 
+import ReactDom from 'react-dom'; 
+import Layout from './Layout'; 
+
+ReactDom.render(<Layout />, document.getElementById('app'));
+
+```
+
 Par convention, les composants ont une majuscule en début de nom, mais ce n'est pas une obligation technique.
 
 Le code est du JSX, l'extension syntaxique type XML développée par Facebook pour React. Les fichiers pourraient donc avoir l'extension .jsx. Cependant, ça n'a pas d'importance pour Webpack au moment de la compilation.
@@ -126,4 +138,3 @@ Ceci permet de conserver le HMR \(Hot Module Replacement\) qui permet de recharg
 Par exemple, en modifiant "Hello world!" en "Hello!" dans Home.js : après avoir enregistré, le navigateur doit se rafraichir tout seul. Ceci grâce au fait que Layout n'est pas une fonction mais une classe.
 
 La prochaine version de HMR devrait permettre d'avoir ce rechargement automatique même sur les composants stateless avec une fonction.
-
