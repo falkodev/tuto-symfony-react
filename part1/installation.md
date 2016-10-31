@@ -59,7 +59,7 @@ En tout cas, ces commandes vont compléter le fichier package.json déjà créé
 
 ![](../assets/package_json.png)
 
-L'élément scripts est vide. Ajoutez le code tel que sur la capture d'écran ci-dessus :
+L'élément "scripts" du fichier package.json (à la racine du projet donc) est vide, ou bien ne contient qu'une ligne que vous pouvez effacer. Ajoutez le code tel que sur la capture d'écran ci-dessus :
 
 ```js
 "scripts": {
