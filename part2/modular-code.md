@@ -4,7 +4,7 @@ Un des forces de React, c'est de permettre d'imbriquer des modules. Bon, c'est l
 
 Nous allons concrètement mettre en oeuvre cette philosophie en créant un assemblage de composants à travers un layout \(disposition en bon français\).
 
-Pour cela, créons un composant Layout.js à la racine du projet :
+Pour cela, créons un composant Layout.js à la racine du projet React (c'est-à-dire app/Resources/js) :
 
 ```js
 import React from 'react';
