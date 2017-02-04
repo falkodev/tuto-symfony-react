@@ -17,7 +17,7 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 ```
 
-React-bootstrap est un autre paquet NPM bien utile. Il remplace jQuery dans Bootstrap par du JS React. Il a seulement besoin du CSS de Bootstrap \(généré par le SASS du paquet précédemment cité\). On a donc 2 packages complémentaires. Pour l'installation de celui-ci :
+React-bootstrap est un autre paquet NPM bien utile. Il remplace jQuery dans Bootstrap par du JS React. Il a seulement besoin du CSS de Bootstrap \(généré par le SASS du paquet précédemment cité\). On a donc 2 packages complémentaires. On aura aussi besoin de liens bootstrap compatibles avec le routeur. Pour l'installation de ces paquets :
 
-`npm i react-bootstrap --save`
+`npm i react-bootstrap react-router-bootstrap --save`
 
