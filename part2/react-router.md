@@ -68,12 +68,20 @@ export default NoMatch;
 
 Rien de bien extraordinaire, mais là où ça va devenir intéressant c'est quand on va modifier la barre de menus et ajouter le routeur dans app.
 
-- layout/Header.js : Remplacer les lignes 15, 16 et 17 : 
+- layout/Header.js : 
+
+Ajouter ceci en ligne 3 :
+```js
+import { LinkContainer } from 'react-router-bootstrap';
+```
+
+
+Remplacer les lignes 15, 16 et 17 par celles-ci : 
 
 ```js
-<NavItem href="home">Accueil</NavItem>
-<NavItem href="page1">Menu 1</NavItem>
-<NavItem href="page2">Menu 2</NavItem>
+<LinkContainer to="home"><NavItem>Accueil</NavItem></LinkContainer>
+<LinkContainer to="page1"><NavItem>Menu 1</NavItem></LinkContainer>
+<LinkContainer to="page2"><NavItem>Menu 2</NavItem></LinkContainer>
 ```
 
 La différence avec la version précédente de ce fichier est qu'on a modifié les liens href du menu.
