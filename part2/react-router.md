@@ -1,4 +1,4 @@
-## React-router
+lines## React-router
 
 Comparé à Angular, framework JS complet, React apparaît comme un squelette autour duquel on peut ajouter des outils et librairies en fonction des besoins du projet.
 
@@ -76,7 +76,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 ```
 
 
-Remplacer les lignes 15, 16 et 17 par celles-ci : 
+Remplacer les liens NavItem par ceci : 
 
 ```js
 <LinkContainer to="home"><NavItem>Accueil</NavItem></LinkContainer>
